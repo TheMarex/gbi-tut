@@ -1,0 +1,379 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}}
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{1. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Vorstellung}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center} \pause
+      \includegraphics[width=250pt]{sap}
+    \end{center}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Der Typ der vorne steht und redet.}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{Alter:} 21 Jahre
+    \item \textbf{Heimatstadt:} Trier (RLP)
+    \item \textbf{Semester:} 3
+    \item \textbf{Studiengang:} Informatik
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jetzt ihr.}
+  \framesubtitle{Bonuspunkte: Merkt euch die Namen eurer Nachbarn.}
+  \begin{description}
+    \item Name
+    \item Studiengang
+    \item Semester
+    \item {\small \textit{Alter}}
+    \item {\small \textit{Heimatstadt}}
+  \end{description}
+\end{frame}
+
+\section{Organisatorisches}
+\begin{frame}
+  \frametitle{Übungsblätter}
+  \begin{block}{Abgabe}
+    \begin{description}
+      \item{\LARGE Freitag 12:30} in den Kästen gegenüber vom Klo unten im Infobau
+    \end{description}
+  \end{block}
+  \begin{block}{Form}
+    \begin{description}
+      \item Bitte {\LARGE keine} Romane verfassen.
+      \item Eingeführte mathematischen Notationen verwenden.
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Was euch erwartet.}
+  \begin{block}{Übungsschein}
+    \begin{itemize}
+      \item 50\% der Punkte sind erfolrderlich
+      \item Hinsetzen, Übungsblätter alleine bearbeiten, \emph{dann} vergleichen.
+      \item Erfahrungsgemäß: Bei regelmäßiger Abgabe sehr machbar.
+      \item Nicht abschreiben.
+      \item Hilft \emph{deutlich} bei der Klausur.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Klausur}
+    \begin{itemize}
+      \item Termin: 7. März
+      \item {\LARGE Viel} Stoff.
+      \item {\LARGE Nicht schieben.}
+      \item Übungsblätter machen, Skript lesen, alte Klausuren rechnen.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tutorium}
+  \begin{block}{Was ihr von mir erwarten könnt:}
+    \begin{itemize}
+      \item Übungsblatt-Rückgabe im jeweils nächsten Tut.*
+      \item Beantworten von Fragen per Mail. {\small \emph{patrick.niklaus@student.kit.edu}}
+    \end{itemize}
+  \end{block}
+    \begin{block}{Was ich von euch erwarte:}
+    \begin{itemize}
+      \item Reden in einer Lautstärke, die ich ignorieren kann.
+      \item Telefonieren bitte nur draußen.
+      \item Feedback geben. Anregungen, Lob, Beleidigungen, ... \emph{(auch gerne per Mail)}
+    \end{itemize}
+  \end{block}
+  \footnotesize *Höhere Gewalt ausgeschlossen.
+\end{frame}
+
+\section{Motivation}
+\begin{frame}
+  \frametitle{Dont't Panic}
+  \begin{block}{Überlastung}
+    \begin{itemize}
+      \item Lerngruppen bilden.
+      \item Im Zweifel, einfach mal was anderes machen. {\tiny Nein, nicht auf Reddit surfen.}
+      \item Man gewöhnt sich dran.
+      \item Im schlimmsten Fall: Studiengangwechsel kein Weltuntergang.
+      \item\textit{Always know where your towel is.}
+    \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}
+  \frametitle{Was ist GBI?}
+  \begin{block}{Ihr braucht es für interessantere Sachen.}
+    \begin{description}
+      \item[Inhalt:] Querschnitt durch die thoeretische Informatik
+      \item[Ziel:] In abstrakte Gedankenwelt reindenken können
+      \item[Module:] Algorithmik, TGI, SWT, ...
+    \end{description}
+  \end{block}
+\end{frame}
+
+\section{Relationen}
+\subsection{Mengen}
+\begin{frame}
+  \frametitle{Mengen}
+  \begin{definition}
+    \begin{itemize}
+      \item Sammlung von 'Elementen'.
+      \item Keine Aussage über Reihenfolge der Elemente
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Endliche Menge von ganzen Zahlen}
+    $\{ 3, 5, 7, 11, 13\}$
+  \end{exampleblock} \pause
+  \begin{exampleblock}{Menge aller ungeraden Zahlen }
+    $\{ x \in \mathbb{N} | x = 2k + 1, k \in \mathbb{N}_0 \}$
+  \end{exampleblock} \pause
+  \begin{exampleblock}{Endliche Menge von Symbolen}
+    $\{ a, \lambda, \varepsilon, b, \phi\}$
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Kreuzprodukt}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ A \times B := \{(a, b) | a \in A, b \in B\}$
+      \item Bilden von allen möglichen Paaren der Elemente dieser Mengen
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Kreuzprodukt von zwei endlichen Mengen}
+    \begin{itemize}
+    \item $ A := \{3, 5, 7\}, B := \{\phi, \epsilon\}$
+    \item $ A \times B = $ \pause $\{(3, \phi), (3, \epsilon), (5, \phi), (5, \epsilon), (7, \phi), (7, \epsilon)\}$
+    \item $ B \times A = $ \pause $\{(\phi, 3), (\phi, 5), (\phi, 7), (\epsilon, 3), (\epsilon, 5), (\epsilon, 7)\}$
+    \end{itemize}
+  \end{exampleblock}
+  \begin{alertblock}{Nicht kommutativ.}
+  \end{alertblock}
+\end{frame}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Relation}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ R \subseteq A \times B $
+      \item R ist eine Teilmenge des Kreuzproduktes zweier Mengen und heißt \emph{Relation}.
+      \item Man schreibt auch: xRy für $(x, y) \in R$
+      \item Ist A = B so sagt man auch: R ist eine Relation über A (bzw. B).
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiel}
+    \begin{itemize}
+    \item $ A := \{1, 3, 5\}, B := \{2, 4, 6\}$ $A \times B \supseteq R := \{(1, 2), (1, 4), (2, 4), (1, 6), (3, 6), (5, 6)\}$ \pause
+    \item $ R = \{(a, b) | a \leq b, a \in A, b \in B \}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Eigenschaften von Relationen}
+  \begin{definition}
+      Sei $R \subseteq A \times B$ eine beliebige Relation. R heißt ...
+      \begin{description}
+        \item[Linkstotal:] Für alle $a \in A$ gilt: Es existiert ein $b \in B$, sodas gilt: $(a, b) \in R$
+        \item[Rechtstotal:] Für alle $b \in B$ gilt: Es existiert ein $a \in A$, sodas gilt: $(a, b) \in R$
+        \item[Linkseindeutig:] Für alle $a \in A$ gilt: Ist $(a, b_1) \in R$ und $(a, b_2) \in R$ so gilt: $b_1 = b_2$
+        \item[Rechtseindeutig:] Für alle $b \in B$ gilt: Ist $(a_1, b) \in R$ und $(a_2, b) \in R$ so gilt: $a_1 = a_2$
+      \end{description}
+  \end{definition}
+\end{frame}
+\begin{frame}
+  \frametitle{Aufgaben zu Relationen}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+      Folgende Relationen $R_n \subseteq A_n \times B_n$ sind gegeben, bestimme ihre Eigenschaften:
+      \begin{enumerate}
+        \item $A_1 := \{1, 2, 3, 4\}, B_1 := \mathbb{N}, R_1 := \{(1, 1), (2, 4), (3, 9), (4, 16)\}$
+        \item $A_2 := \{1, 2\}, B_2 := \{2, 3, 4\}, R_2 := \{(1, 2), (1, 3), (1, 4), (2, 2)\}$
+        \item $A_3 := \{1, 2, 3\}, B_3 := \{1, 2\}, R_3 := \{(2, 1), (2, 2), (3, 1)\}$
+        \item $A_4 := \{1, 2, 3\}, B_4 := \{1, 2, 3\}, R_4 := \{(1, 1), (2, 1)\}$
+      \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\subsection{Funktionen}
+\begin{frame}
+  \frametitle{Funktionen}
+  \begin{definition}
+  	Seien A, B zwei Mengen. $f \subseteq A \times B$ eine Relation. Ist f \emph{linkstotal} und \emph{rechtseindeutig} so heißt f \emph{Funktion} und man schreibt:
+  	$f: A \rightarrow B, f(a) \mapsto b$
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiel}
+      $A := \{1, 2, 3\}, B := \mathbb{N}, f: A \rightarrow B, f(a) \mapsto a^2$
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Eigenschaften von Funktionen}
+  \begin{definition}
+  	Sei $f: A \rightarrow B$ eine Funktion. Dann heißt f...
+  	\begin{itemize}
+  	  \item injektiv: Wenn f linkseindeutig ist.
+  	  \item surjektiv: Wenn f rechtstotal ist.
+  	  \item bijektiv: Wenn F injektiv und surjektiv ist.
+  	\end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $A := \{1, 2, 3\}, B := \mathbb{N}, f: A \rightarrow B, f(a) \mapsto a+2$
+      \item $A := \{-2, -1, 0, 1, 2\}, B := \{0, 1, 2, 4\}, f: A \rightarrow B, f(a) \mapsto a^2$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
+\section{Logik}
+\subsection{Operatoren}
+\begin{frame}
+  \frametitle{Primitive Operatoren}
+  \begin{definition}
+    Seien A und B \emph{Aussagen}. w: Wahr, f: Falsch
+    
+  	\begin{table}
+    	\begin{tabular}{|l|l||c||c|}
+    	\hline
+    	A & B & $ A \wedge B$ & $A \vee B$\\
+      \hline
+	      f & f & f & f \\
+	      f & w & f & w \\
+	      w & f & f & w \\
+	      w & w & w & w \\
+      \hline
+      \end{tabular}
+    	\begin{tabular}{|l||c|}
+    	\hline
+    	A & $\neg A$\\
+      \hline
+	      f & w\\
+	      w & f\\
+      \hline
+
+      \end{tabular}
+       \caption{Und: $\wedge$, Oder: $\vee$, Nicht: $\neg$}
+    \end{table}
+  \end{definition}
+\end{frame}
+\begin{frame}
+  \frametitle{Implikation}
+  \begin{definition}
+    \begin{description}
+    \item["'Wenn A gilt dann gilt auch B"'] $(A \Rightarrow B) :\Leftrightarrow \neg (A \wedge \neg B)$
+    \item["'Wenn A gilt \emph{genau} dann gilt auch B"']$(A \Leftrightarrow B) :\Leftrightarrow ((A \Rightarrow B) \wedge (A \Leftarrow B))$
+    \end{description}
+  	\begin{table}
+    	\begin{tabular}{|l|l||c|}
+    	\hline
+    	A & B & $ A \Rightarrow B$\\
+      \hline
+	      f & f & w \\
+	      f & w & w \\
+	      w & f & f \\
+	      w & w & w \\
+      \hline
+      \end{tabular}
+    \end{table}
+  \end{definition}
+  \begin{alertblock}{}
+    Wenn Aussage A falsch ist die Implikation \emph{immer} wahr.
+  \end{alertblock}
+\end{frame}
+
+\subsection{Beispiele}
+\begin{frame}
+  \frametitle{Beispiele}
+  \begin{exampleblock}{}
+  	\begin{table}
+    	\begin{tabular}{|l|l|c|c||c|}
+    	\hline
+    	A & B & $A \vee B$ & $A \wedge B$ & $ (A \vee B) \Rightarrow (A \wedge B)$\\
+      \hline
+	      f & f & \hiddencell{2}{0} & \hiddencell{3}{0} & \hiddencell{4}{1}\\
+	      f & w & \hiddencell{2}{1} & \hiddencell{3}{0} & \hiddencell{4}{0}\\
+	      w & f & \hiddencell{2}{1} & \hiddencell{3}{0} & \hiddencell{4}{0}\\
+	      w & w & \hiddencell{2}{1} & \hiddencell{3}{1} & \hiddencell{4}{1}\\
+      \hline
+      \end{tabular}
+    \end{table}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Praktische Regeln}
+  \begin{theorem}{De Morgan'sche Gesetze}
+    \begin{enumerate}
+      \item $\neg (A \vee B) = \neg A \wedge \neg B$
+      \item $\neg (A \wedge B) = \neg A \vee \neg B$
+    \end{enumerate}
+  \end{theorem}
+  \begin{theorem}{Inverse der Implikation}
+    $(\neg A \Rightarrow \neg B) = (B \Rightarrow A)$
+  \end{theorem}
+\end{frame}
+\section{Quantoren}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Quantoren}
+  \begin{definition}
+    \begin{description}
+      \item[$\forall x \in M: A(x)$] "'Für alle $x \in M$ gilt: A(x)"' 
+      \item[$\exists x \in M: A(x)$] "'Es existiert ein $x \in M$ für das gilt: A(x)"'
+    \end{description}
+  \end{definition} \pause
+  \begin{description}
+    \item[$\forall$] "'Umgedrehtes A für Alle"'
+    \item[$\exists$] "'Gespiegeltes E für Existiert"'
+  \end{description}
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $\forall x \in M: \exists k \in \mathbb{Z}: x = 2k+1$
+      \item $\forall a_1, a_2 \in M: f(a_1) = f(a_2) \Rightarrow a_1 = a_2$
+      \item $\forall \varepsilon > 0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |a-a_n| < \varepsilon$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Aussagen mit Quantoren negieren}
+  \begin{block}{Regel}
+    Symbole vertauschen und letzte Aussage negieren. $\forall ... \exists ... : A(x) \longrightarrow \exists ... \forall ... : \neg A(x)$
+  \end{block} \pause
+  \begin{exampleblock}{Beispiele}
+    \begin{description}
+      \item[Aus] $\forall x \in M: \exists k \in \mathbb{Z}: x = 2k+1$ \pause
+      \item[wird] $\exists x \in M: \forall k \in \mathbb{Z}: x \neq 2k+1$
+    \end{description}
+  \end{exampleblock}
+\end{frame}
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+    Formuliert folgende Aussagen mit logischen Symbolen und Quantoren.
+    \begin{enumerate}
+      \item In $M_1$ gibt es keine Elemente mit der Differenz 2.
+      \item In $M_2$ gibt es nur Elemente die größer als 10 oder kleiner als -1 sind.
+      \item In A gibt es für alle Elemente ein Element aus B, das doppelt so groß ist.
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\end{document}
