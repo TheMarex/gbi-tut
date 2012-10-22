@@ -1,0 +1,48 @@
+\section{Vollständige Induktion}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Vollständige Induktion}
+  \begin{definition}
+    Sei A(n) ein Aussage die für alle $n \in \mathbb{N}$ gelten soll.
+    \begin{enumerate}
+      \item IA: Zeige es gilt A(1).
+      \item IV: Nehme an das A(n) für ein bliebiges aber festes $n \in \mathbb{N}$ gilt.
+      \item IS: Zeige mit (IV) das A(n+1) gilt.
+    \end{enumerate}
+  \end{definition}
+  \begin{alertblock}{Sehr wichtig!}
+    Kommt fast immer in der Klausur.
+  \end{alertblock}
+\end{frame}
+\begin{frame}[plain]
+  \frametitle{}
+  \begin{exampleblock}{Gaußsche Summenformel}
+    Zeige: $\forall n \in \mathbb{N}: \sum \limits^{n}_{i=1} i = \frac{n(n+1)}{2}$\pause
+    \begin{description}{}
+      {\tiny
+      \item[IA:] $n = 1$: $\sum \limits^{1}_{i=1} i = 1 = \frac{1(1+1)}{2}$
+      \item[IV:] Für ein bliebiges aber festes $n \in \mathbb{N}$ gelte: $\sum \limits^{n}_{i=1} i = \frac{n(n+1)}{2}$
+      \item[IS:] $n \leadsto n+1$:
+        \begin{align*}
+          \sum \limits^{n+1}_{i=1} i &= \sum \limits^{n}_{i=1} i + \sum \limits^{n+1}_{i=n} i
+          = \sum \limits^{n}_{i=1} i + n+1\\
+          &= \frac{n(n+1)}{2} + n+1 = \frac{n(n+1) + 2(n+1)}{2}\\
+          &= \frac{(n+2) \cdot (n+1)}{2} = \frac{(n+1)((n+1)+1)}{2} \blacksquare
+        \end{align*}
+       }
+    \end{description}
+  \end{exampleblock}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+    Beweist folgende Aussagen mit vollständiger Induktion.
+    \begin{enumerate}
+      \item $\forall n \in \mathbb{N}: \sum \limits^{n}_{k=1}(2k-1) = n^2$
+      \item $\forall n \in \mathbb{N}: n(n^2-1)$ ist durch 6 teilbar.\\
+        {\tiny Tipp: Wie würdet ihr Teilbarkeit definieren?}
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
