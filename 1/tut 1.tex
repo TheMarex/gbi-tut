@@ -7,7 +7,7 @@
 \usepackage{amsmath}
 \usetheme{Singapore}
 \usecolortheme{dove}
-\graphicspath{{images/}}
+\graphicspath{{images/}{../comics/}}
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
 
 \title{Grundbegriffe der Informatik}
@@ -138,5 +138,29 @@
 \input{../sections/relationen.tex}
 \input{../sections/logik.tex}
 \input{../sections/quantoren.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr mitnehmen sollt}
+  \begin{enumerate}
+    \item \emph{Relationen} sind Teilmengen des Kreuzproduktes von zwei Mengen.
+    \item linkstotal, rechtstotal, linkseindeutig, rechtseindeutig
+    \item \emph{Funktionen} sind linkstotal und rechtseindeutig
+    \item surjektiv, injektiv, bijektiv
+    \item Oder $\vee$, Und $\wedge$, Implikation $\Rightarrow$, Nicht $\neg$
+    \item Für alle $\forall$, Es existiert $\exists$
+    \item Negieren $\leadsto$ Quantoren vertauschen und letzten Ausdruck negieren!
+   \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=320pt]{incident}
+    \end{center}
+  \end{figure}
+\end{frame}
 
 \end{document}
