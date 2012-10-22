@@ -322,12 +322,12 @@
   \frametitle{Praktische Regeln}
   \begin{theorem}{De Morgan'sche Gesetze}
     \begin{enumerate}
-      \item $\neg (A \vee B) = \neg A \wedge \neg B$
-      \item $\neg (A \wedge B) = \neg A \vee \neg B$
+      \item $\neg (A \vee B)$ äquivalent zu $\neg A \wedge \neg B$
+      \item $\neg (A \wedge B)$ äquivalent zu $ \neg A \vee \neg B$
     \end{enumerate}
   \end{theorem}
-  \begin{theorem}{Inverse der Implikation}
-    $(\neg A \Rightarrow \neg B) = (B \Rightarrow A)$
+  \begin{theorem}{Implikation von Inversen}
+    $(\neg A \Rightarrow \neg B) \Leftrightarrow (B \Rightarrow A)$
   \end{theorem}
 \end{frame}
 \section{Quantoren}
@@ -373,6 +373,111 @@
       \item In $M_1$ gibt es keine Elemente mit der Differenz 2.
       \item In $M_2$ gibt es nur Elemente die größer als 10 oder kleiner als -1 sind.
       \item In A gibt es für alle Elemente ein Element aus B, das doppelt so groß ist.
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
+\section{Wörter}
+\subsection{Alphabete}
+\begin{frame}
+  \frametitle{Alphabete}
+  \begin{definition}
+    Sei A eine endliche Menge von Symbolen. Dann heißt A ein \emph{Alphabet}.
+  \end{definition}
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item $A := \{a, b, c\}$
+      \item $A := \{\phi, 1, 2\}$
+      \item $A := \{l, r, t, o\}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\subsection{Wörter}
+\begin{frame}
+  \frametitle{Wörter}
+  \begin{definition}
+    Sei A ein Alphabet und $w: \mathbb{G}_n \rightarrow A$ eine \emph{surjektive} Abbildung. Dann heißt w ein \emph{Wort über dem Alphabet A}.
+  \end{definition}\pause
+  \begin{alertblock}{Etwas weniger formal}
+    Ein Wort ist eine Folge von Symbolen aus einem Alphabet A.
+  \end{alertblock}\pause
+  \begin{definition}
+    Das Wort $\varepsilon: \{\} \rightarrow \{\}$ heißt das \emph{leere Wort}. \\
+    {\tiny Neutrales Element gegenüber der Wortkonkatenation.}
+  \end{definition}\pause
+  \begin{alertblock}{Erinnerung}
+    $\mathbb{G}_n :=  \{k \in \mathbb{N}_0 | k < n\}$
+  \end{alertblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Wörter}
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item
+      $
+        w_1: \mathbb{G}_5 \rightarrow \{l, r, t, o\}: w_1(i) \mapsto \left\{
+        \begin{array}{l l}
+          t, & \quad i = 0\\
+          r, & \quad i = 1\\
+          l, & \quad i \in \{2, 4\}\\
+          o, & \quad i = 3\\
+        \end{array} \right.
+      $ \\
+      wir schreiben auch $w_1 = trlol$
+      \item
+      $
+        w_2: \mathbb{G}_6 \rightarrow \{1, 0\}: w_2(i) \mapsto \left\{
+        \begin{array}{l l}
+          1, & \quad \text{$i$ gerade}\\
+          0, & \quad \text{$i$ ungerade}\\
+        \end{array} \right.
+      $ \\
+      wir schreiben auch $w_2 = 101010$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\subsection{Konkatenation}
+\begin{frame}
+  \frametitle{Konkatenation von Wörtern}
+  \begin{definition}
+    Seien $w_1: \mathbb{G}_{n_1} \rightarrow A_1, w_2: \mathbb{G}_{n_2} \rightarrow A_2$ Wörter.\\
+    Dann ist $w_1 \cdot w_2: \mathbb{G}_{n_1 + n_2} \rightarrow A_1 \cup A_2,$
+    $(w_1 \cdot w_2)(i) \mapsto \left\{
+        \begin{array}{l l}
+          w_1(i), & \quad 0 \leq i < n_1\\
+          w_2(i-n_1), & \quad n_1 \leq i < n_2\\
+        \end{array} \right.
+    $\\
+    die Konkatenation von $w_1$ und $w_2$.
+  \end{definition}\pause
+  \begin{alertblock}{Etwas weniger formal}
+    Wir hängen die Buchstabenfolge $w_1$ an $w_2$ an.
+  \end{alertblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Konkatenation von Wörtern}
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $w_1 := ab, w_2 := ba$\\
+             $w_1 \cdot w_2 = ab \cdot ba = abba$
+      \item $w_1 := Hallo, w_2 := We, w_3 := lt$\\
+             $w_1 \cdot w_2  \cdot w_3 = Hallo \cdot We \cdot lt = HalloWelt$
+      \item $w_1 := 01$\\
+             $w_1^3 = w_1 \cdot w_1^2 = w_1 \cdot w_1 \cdot w_1 = 10 \cdot 10 \cdot 10 = 101010$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Menge aller Wörter}
+  \begin{definition}
+    Die Menge der Wörter der Länge \emph{n} wird bezeichnet mit $A^n$. Die Menge aller Wörter $A^*$ ist definiert als $A^* = \bigcup \limits^{\infty}_{i=0} A^i$.
+  \end{definition}
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $A := \{a, b\}, A^3 = \{aaa, aab, aba, abb, baa, bab, bba, bbb\}$
+      \item $A := \{0, 1\}, A^* = \{\varepsilon, 0, 1, 00, 11, 01, 10, 000, 001, ...\}$
+      \item $A := \{a, b, c\}, A^* = \{\varepsilon, a, b, c, aa, ab, ac, bb, ba, ...\}$
     \end{enumerate}
   \end{exampleblock}
 \end{frame}
