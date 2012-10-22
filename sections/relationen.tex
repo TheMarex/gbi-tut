@@ -1,0 +1,109 @@
+\section{Relationen}
+\subsection{Mengen}
+\begin{frame}
+  \frametitle{Mengen}
+  \begin{definition}
+    \begin{itemize}
+      \item Sammlung von 'Elementen'.
+      \item Keine Aussage über Reihenfolge der Elemente
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Endliche Menge von ganzen Zahlen}
+    $\{ 3, 5, 7, 11, 13\}$
+  \end{exampleblock} \pause
+  \begin{exampleblock}{Menge aller ungeraden Zahlen }
+    $\{ x \in \mathbb{N} | x = 2k + 1, k \in \mathbb{N}_0 \}$
+  \end{exampleblock} \pause
+  \begin{exampleblock}{Endliche Menge von Symbolen}
+    $\{ a, \lambda, \varepsilon, b, \phi\}$
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Kreuzprodukt}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ A \times B := \{(a, b) | a \in A, b \in B\}$
+      \item Bilden von allen möglichen Paaren der Elemente dieser Mengen
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Kreuzprodukt von zwei endlichen Mengen}
+    \begin{itemize}
+    \item $ A := \{3, 5, 7\}, B := \{\phi, \epsilon\}$
+    \item $ A \times B = $ \pause $\{(3, \phi), (3, \epsilon), (5, \phi), (5, \epsilon), (7, \phi), (7, \epsilon)\}$
+    \item $ B \times A = $ \pause $\{(\phi, 3), (\phi, 5), (\phi, 7), (\epsilon, 3), (\epsilon, 5), (\epsilon, 7)\}$
+    \end{itemize}
+  \end{exampleblock}
+  \begin{alertblock}{Nicht kommutativ.}
+  \end{alertblock}
+\end{frame}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Relation}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ R \subseteq A \times B $
+      \item R ist eine Teilmenge des Kreuzproduktes zweier Mengen und heißt \emph{Relation}.
+      \item Man schreibt auch: xRy für $(x, y) \in R$
+      \item Ist A = B so sagt man auch: R ist eine Relation über A (bzw. B).
+    \end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiel}
+    \begin{itemize}
+    \item $ A := \{1, 3, 5\}, B := \{2, 4, 6\}$ $A \times B \supseteq R := \{(1, 2), (1, 4), (2, 4), (1, 6), (3, 6), (5, 6)\}$ \pause
+    \item $ R = \{(a, b) | a \leq b, a \in A, b \in B \}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Eigenschaften von Relationen}
+  \begin{definition}
+      Sei $R \subseteq A \times B$ eine beliebige Relation. R heißt ...
+      \begin{description}
+        \item[Linkstotal:] Für alle $a \in A$ gilt: Es existiert ein $b \in B$, sodas gilt: $(a, b) \in R$
+        \item[Rechtstotal:] Für alle $b \in B$ gilt: Es existiert ein $a \in A$, sodas gilt: $(a, b) \in R$
+        \item[Linkseindeutig:] Für alle $b \in B$ gilt: Ist $(a_1, b) \in R$ und $(a_2, b) \in R$ so gilt: $a_1 = a_2$
+        \item[Rechtseindeutig:] Für alle $a \in A$ gilt: Ist $(a, b_1) \in R$ und $(a, b_2) \in R$ so gilt: $b_1 = b_2$
+      \end{description}
+  \end{definition}
+\end{frame}
+\begin{frame}
+  \frametitle{Aufgaben zu Relationen}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+      Folgende Relationen $R_n \subseteq A_n \times B_n$ sind gegeben, bestimme ihre Eigenschaften:
+      \begin{enumerate}
+        \item $A_1 := \{1, 2, 3, 4\}, B_1 := \mathbb{N}, R_1 := \{(1, 1), (2, 4), (3, 9), (4, 16)\}$
+        \item $A_2 := \{1, 2\}, B_2 := \{2, 3, 4\}, R_2 := \{(1, 2), (1, 3), (1, 4), (2, 2)\}$
+        \item $A_3 := \{1, 2, 3\}, B_3 := \{1, 2\}, R_3 := \{(2, 1), (2, 2), (3, 1)\}$
+        \item $A_4 := \{1, 2, 3\}, B_4 := \{1, 2, 3\}, R_4 := \{(1, 1), (2, 1)\}$
+      \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\subsection{Funktionen}
+\begin{frame}
+  \frametitle{Funktionen}
+  \begin{definition}
+  	Seien A, B zwei Mengen. $f \subseteq A \times B$ eine Relation. Ist f \emph{linkstotal} und \emph{rechtseindeutig} so heißt f \emph{Funktion} und man schreibt:
+  	$f: A \rightarrow B, f(a) \mapsto b$
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiel}
+      $A := \{1, 2, 3\}, B := \mathbb{N}, f: A \rightarrow B, f(a) \mapsto a^2$
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Eigenschaften von Funktionen}
+  \begin{definition}
+  	Sei $f: A \rightarrow B$ eine Funktion. Dann heißt f...
+  	\begin{itemize}
+  	  \item injektiv: Wenn f linkseindeutig ist.
+  	  \item surjektiv: Wenn f rechtstotal ist.
+  	  \item bijektiv: Wenn F injektiv und surjektiv ist.
+  	\end{itemize}
+  \end{definition} \pause
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $A := \{1, 2, 3\}, B := \mathbb{N}, f: A \rightarrow B, f(a) \mapsto a+2$
+      \item $A := \{-2, -1, 0, 1, 2\}, B := \{0, 1, 2, 4\}, f: A \rightarrow B, f(a) \mapsto a^2$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+

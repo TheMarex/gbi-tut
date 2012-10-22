@@ -1,0 +1,47 @@
+\section{Quantoren}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Quantoren}
+  \begin{definition}
+    \begin{description}
+      \item[$\forall x \in M: A(x)$] "'Für alle $x \in M$ gilt: A(x)"' 
+      \item[$\exists x \in M: A(x)$] "'Es existiert ein $x \in M$ für das gilt: A(x)"'
+    \end{description}
+  \end{definition} \pause
+  \begin{description}
+    \item[$\forall$] "'Umgedrehtes A für Alle"'
+    \item[$\exists$] "'Gespiegeltes E für Existiert"'
+  \end{description}
+  \begin{exampleblock}{Beispiele}
+    \begin{enumerate}
+      \item $\forall x \in M: \exists k \in \mathbb{Z}: x = 2k+1$
+      \item $\forall a_1, a_2 \in M: f(a_1) = f(a_2) \Rightarrow a_1 = a_2$
+      \item $\forall \varepsilon > 0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |a-a_n| < \varepsilon$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Aussagen mit Quantoren negieren}
+  \begin{block}{Regel}
+    Symbole vertauschen und letzte Aussage negieren. $\forall ... \exists ... : A(x) \longrightarrow \exists ... \forall ... : \neg A(x)$
+  \end{block} \pause
+  \begin{exampleblock}{Beispiele}
+    \begin{description}
+      \item[Aus] $\forall x \in M: \exists k \in \mathbb{Z}: x = 2k+1$ \pause
+      \item[wird] $\exists x \in M: \forall k \in \mathbb{Z}: x \neq 2k+1$
+    \end{description}
+  \end{exampleblock}
+\end{frame}
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+    Formuliert folgende Aussagen mit logischen Symbolen und Quantoren.
+    \begin{enumerate}
+      \item In $M_1$ gibt es keine Elemente mit der Differenz 2.
+      \item In $M_2$ gibt es nur Elemente die größer als 10 oder kleiner als -1 sind.
+      \item In A gibt es für alle Elemente ein Element aus B, das doppelt so groß ist.
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
