@@ -1,0 +1,79 @@
+\section{Formale Sprachen}
+\subsection{Definitionen}
+\begin{frame}
+  \frametitle{Formale Sprachen}
+  \begin{definition}
+    Sei A ein Alphabet. $L \subseteq A^*$ heißt \emph{formale Sprache über dem Alphabet A}.
+  \end{definition}\pause
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item $A := \{1, 0\}, L:= \{011, 101, 110\} \subset A^*$ \pause
+      \item $A := \{a, b\}, L:= \{ab, abab, ababab, ababab, ...\} \subset A^*$ \pause
+      \item $A := \{a, b\}, L:= \{ab, aabb, aaabbb, aaaabbbb, ...\} \subset A^*$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Produkt von Sprachen}
+  \begin{definition}
+    Seien $L_1, L_2$ formale Sprachen. Dann ist $L_1 \cdot L_2 := \{w_1 \cdot w_2 | w_1 \in L_1, w_2 \in L_2\}$ das Produkt von $L_1$ und $L_2$.
+  \end{definition}\pause
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item $L_1 := \{a, aa\}, L_2 := \{bb, bbb\}$,\\
+             $L_1 \cdot L_2 = \{abb, abbb, aabb, aabbb\}$ \pause
+      \item $L_1 := \{20, 19\}, L_2 := \{10, 12\},$\\
+             $L_1 \cdot L_2 = \{2010, 2012, 1910, 1912\}$\\
+             $L_2 \cdot L_1 = \{1020, 1220, 1019, 1219\}$
+    \end{itemize}
+  \end{exampleblock}
+  \begin{alertblock}{Nicht kommutativ!}
+  \end{alertblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Potenzen von Sprachen}
+  \begin{definition}
+    Sei L eine formale Sprache. Dann ist $L^0 = \varepsilon, L^n := w_1 \cdot ... \cdot w_n$, (mit $w_1, ..., w_n \in L$) die \emph{n-te Potenz von L}.
+  \end{definition}\pause
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item $L := \{ab, ba\}, L^3 := \{ababab, ababba, abbaab, abbaba, baabab, baabba, babaab, bababa\}$
+      \item $L := \{a, b, c\}, L^2 := \{aa, ab, ac, ba, bb, bc, ca, cb, cc\}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Konkatenationsabschluss von Sprachen}
+  \begin{definition}
+    Sei L eine formale Sprache. Die Menge aller Wörter, die sich aus Wörtern dieser Sprache L zusammen setzen lassen ist definiert als\\
+    \begin{description}
+      \item[Konkatenationsabschluss:] $L^* = \bigcup \limits^{\infty}_{i=0} L^i$.
+      \item[$\varepsilon$-freier Konkatenationsabschluss:] $L^+ = \bigcup \limits^{\infty}_{i=1} L^i$.
+    \end{description}
+  \end{definition}\pause
+  \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+      \item $L := \{a0, b1, c2\}, L^* = \{\varepsilon, a0, b1, c2, a0a0, a0b1, ...\}$\\
+             $L^+ = \{a0, b1, c2, a0a0, a0b1, ...\}$
+      \item $L := \{00, 1\}, L^* = \{\varepsilon, 00, 1, 100, 001, ...\}$\\
+             $L^+ = \{\varepsilon, 00, 1, 100, 001, ...\}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+      Bestimmt folgende Sprachen in Mengenschreibweise:
+      \begin{enumerate}
+        \item $L_1$ sei die Sprache über $A := \{a, b\}$ bei der alle Worte mit a beginnen und nur ab-Teilworte folgen.
+        \item $L_2 := \{ba\}^* \cdot \{ab\}^+$
+      \end{enumerate}
+      Bestimmt ob die angegebenen Worte in den entsprechenden Sprachen liegen:
+      \begin{enumerate}
+        \item $w_1 = \varepsilon, w_2 = ab, w_3 = abbaab, L_1 := \{\varepsilon\}^+ \cdot \{ab\} \cdot \{ba\}^*$
+        \item $w_1 = \varepsilon, w_2 = ab, w_3 = abbaab, L_1 := \{aaa\}^* \cdot \{b\}^+ \cdot \{a\}^3$
+      \end{enumerate}
+  \end{exampleblock}
+\end{frame}
