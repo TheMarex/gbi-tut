@@ -9,6 +9,15 @@
 \usecolortheme{dove}
 \graphicspath{{images/}{../comics/}}
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
 
 \title{Grundbegriffe der Informatik}
 \author{Patrick Niklaus}
@@ -27,7 +36,7 @@
 \section{Vorstellung}
 \begin{frame}[plain]
   \begin{figure}
-    \begin{center} \pause
+    \begin{center}
       \includegraphics[width=250pt]{sap}
     \end{center}
   \end{figure}
@@ -98,7 +107,7 @@
   \begin{block}{Was ihr von mir erwarten könnt:}
     \begin{itemize}
       \item Übungsblatt-Rückgabe im jeweils nächsten Tut.*
-      \item Beantworten von Fragen per Mail. {\small \emph{patrick.niklaus@student.kit.edu}}
+      \item Beantworten von Fragen per Mail (oder eben direkt hier). {\small \emph{patrick.niklaus@student.kit.edu}}
     \end{itemize}
   \end{block}
     \begin{block}{Was ich von euch erwarte:}
@@ -113,7 +122,7 @@
 
 \section{Motivation}
 \begin{frame}
-  \frametitle{Dont't Panic}
+  \frametitle{Don't Panic}
   \begin{block}{Überlastung}
     \begin{itemize}
       \item Lerngruppen bilden.
@@ -153,6 +162,14 @@
     \item Für alle $\forall$, Es existiert $\exists$
     \item Negieren $\leadsto$ Quantoren vertauschen und letzten Ausdruck negieren!
     \item \emph{Vollständige Induktion}: Anfang, Voraussetzung, Schritt
+   \end{enumerate}
+\end{frame}
+\begin{frame}
+  \frametitle{Das nächste Übungsblatt}
+  \begin{enumerate}
+    \item \emph{Vollständige Induktion}
+    \item Aussagenlogik, Quantoren
+    \item Rekrusive Definitionen
    \end{enumerate}
 \end{frame}
 
