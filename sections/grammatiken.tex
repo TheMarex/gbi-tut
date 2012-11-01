@@ -3,27 +3,74 @@
 \begin{frame}
   \frametitle{Kontextfreie Grammatiken}
   \begin{definition}
-    \begin{description}{Seien folgende Mengen gegeben:}
+    Seien folgende Mengen gegeben:
+    \begin{description}
       \item[N:] Menge von Nichtterminalsymbolen
       \item[T:] Menge von Terminalsymbolen
       \item[S:] $S \in N$ Startsymbol
-      \item[$P \subset N \times (N \cup T)$:] Menge von Produktionen
+      \item[$P \subset N \times V^*$:] Menge von Produktionen, \\
+      $V := (N \cup T)$
     \end{description}
     Dann heißt der Tupel G := (N, T, S, P) \emph{kontextfreie Grammatik}.
   \end{definition}\pause
+  Schreibweisen:
+  \begin{itemize}
+    \item Anstelle von $(a, b) \in P$ schreibt man $a \longrightarrow b$.
+    \item Die Sprache die von G erzeugt wird nennt man L(G).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beispiele}
   \begin{exampleblock}{Beispiele}
     \begin{itemize}
+      \item $G_1 := (\{X\}, \{a, b\}, X, \{X \longrightarrow aXb | \varepsilon\})$
+      \item $G_2 := (\{X, Y, Z\}, \{0, 1\}, X, \{X \longrightarrow 0Y | 1Z, Y \longrightarrow 0Y|\varepsilon, Z \longrightarrow 1Z|\varepsilon\})$
+       \item $G_3 := (\{X\}, \{0\}, X, \{X \longrightarrow X | \varepsilon\})$
     \end{itemize}
   \end{exampleblock}
 \end{frame}
 
 \subsection{Aufgaben}
 \begin{frame}
+  \frametitle{Fragen}
+  \begin{exampleblock}{}
+    \begin{enumerate}
+      \item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?
+      \item Welche Sprache erzeugt: $G_1 := (\{X\}, \{0\}, X, \{X \longrightarrow X\})$
+      \item Ist $G_2 := (\{X\}, \{a, b\}, a, \{X \longrightarrow \varepsilon\})$ eine gültige Grammatik?
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
   \frametitle{Aufgaben}
   \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
-      Anweisung
-      \begin{enumerate}
-        \item Aufgabe
-      \end{enumerate}
+    Welche Sprachen erzeuge folgende Grammatiken.
+    \begin{enumerate}
+      \item $G_1 := (\{X, Y\}, \{a, b\}, X, \{X \longrightarrow aY | \varepsilon, Y \longrightarrow bX\})$
+      \item $G_2 := (\{X, Y, Z\}, \{a, b, c\}, X,$\\
+             $\{X \longrightarrow Ya | Yb | Yc, Y \longrightarrow ZZY | \varepsilon, Z \longrightarrow a | b | c\})$
+    \end{enumerate}
+    Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:
+    \begin{enumerate}
+      \item $L_1 := \{ab, cd\}^* \cdot \{a, c\}^2$
+      \item $A := \{0, 1\}$, $L_2 := \{w  \in A^*| Num_0(w) = Num_1(w)\}$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Bonus-Aufgabe}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+    Konstruiert eine Grammatik die alle E-Mail-Adresse aus den Buchstaben {a, b, c} erzeugt.
+    \emph{Hinweis}: $T := \{a, b, c, @, ., \_\}$
+  \end{exampleblock}\pause
+  \begin{exampleblock}{Lösung}
+    $G = (N, T, S, P)$
+    \begin{itemize}
+      \item $N = \{E, A, B\}$
+      \item $T = \{a, b, c, ., \_\}$
+      \item $S = E$
+      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow B|\_A, B \longrightarrow aB | bB | cB | \varepsilon\}$
+    \end{itemize}
   \end{exampleblock}
 \end{frame}

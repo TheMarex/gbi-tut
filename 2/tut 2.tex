@@ -9,6 +9,15 @@
 \usecolortheme{dove}
 \graphicspath{{images/}{../comics/}}
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
 
 \title{Grundbegriffe der Informatik}
 \author{Patrick Niklaus}
@@ -26,13 +35,17 @@
 
 \input{../sections/woerter.tex}
 \input{../sections/sprachen.tex}
+\input{../sections/grammatiken.tex}
 
 \section{Abschluss}
 \subsection{Zusammenfassung}
 \begin{frame}
   \frametitle{Was ihr mitnehmen sollt}
   \begin{enumerate}
-    \item Foo
+    \item Alphabete sind Mengen von Zeichen
+    \item Wörter sind Folgen von Zeichen
+    \item Formale Sprachen sind Mengen von Worten
+    \item Kontextfreie Grammatiken erzeugen formale Sprachen
    \end{enumerate}
 \end{frame}
 
