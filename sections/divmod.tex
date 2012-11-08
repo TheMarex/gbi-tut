@@ -1,0 +1,34 @@
+\section{Ganzzahlige Division mit Rest}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{Ganzzahlige Devision mit Rest}
+  \begin{definition}
+    Sei $z \in \mathbb{Z}$ eine ganze Zahl. Dann kann man für jede Zahl $n \in \mathbb{Z}$ \emph{eindeutige} Zahlen $p, r \in \mathbb{Z}$ finden, so das gilt: $z = p \cdot n + r$ und man definiert:
+    \begin{description}
+      \item $z \:\textnormal{mod}\: n := r$
+      \item $z \:\textnormal{div}\: n := p$
+    \end{description}
+  \end{definition}
+  \begin{alertblock}{In einfachen Worten:}
+   $z \:\textnormal{mod}\: n := r$ entspricht dem Rest einer ganzzahligen Division.\\
+   $z \:\textnormal{div}\: n := p$ entspricht dem Quotient einer ganzzahligen Division.\\
+   \emph{Denkt an die schriftliche Division aus der Grundschule.}
+  \end{alertblock}
+\end{frame}
+
+\subsection{Beispiele}
+\begin{frame}
+  \frametitle{Beispiele}
+  \begin{exampleblock}{Jetzt seid ihr gefragt.}
+  	\begin{table}
+    	\begin{tabular}{r||c|c|c|c|l}
+    	x & 3 & 5 & 12 & 4 & 17\\
+    	\hline
+    	\hline
+	    x mod 5  & \hiddencell{2}{3} & \hiddencell{2}{0} & \hiddencell{2}{2} & \hiddencell{2}{4} & \hiddencell{2}{2} \\
+	    x div 5  & \hiddencell{3}{0} & \hiddencell{3}{1} & \hiddencell{3}{2} & \hiddencell{3}{0} & \hiddencell{3}{3} \\
+	    2 $\cdot$ (x div 2)  & \hiddencell{4}{2} & \hiddencell{4}{4} & \hiddencell{4}{12} & \hiddencell{4}{2} & \hiddencell{4}{16} \\
+      \end{tabular}
+    \end{table}
+  \end{exampleblock}
+\end{frame}
