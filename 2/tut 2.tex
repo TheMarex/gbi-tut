@@ -5,6 +5,8 @@
 \usepackage{ngerman}
 \usepackage{graphics}
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
 \usetheme{Singapore}
 \usecolortheme{dove}
 \graphicspath{{images/}{../comics/}}
@@ -33,19 +35,31 @@
   \end{description}
 \end{frame}
 
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Was oft falsch gemacht wurde:}
+  \begin{itemize}
+    \item ${\exists}_1$ oder $\exists !$ bitte nicht (in GBI) benutzen!\\
+          ${\exists}_1 x \in M: A(x)$\\
+          $\;\;\Leftrightarrow \exists x \in M: A(x) \wedge (\forall y \in M: A(y) => x = y)$
+    \item Wenn ihr in der Induktions Vorrausetzung A(n) für ein beliebiges aber \emph{festes} $n \in \mathbb{N}$ vorraussetzt, dann gilt das auch nur für genau ein n. Die I.V. gilt nicht gleichzeitig für n und n-1.\\
+     Also: Einfach in der I.V. für n und n-1 fordern und I.A. für bsp. n=0 und n=1 beweisen.
+  \end{itemize}
+\end{frame}
+
+\input{../sections/divmod.tex}
+\input{../sections/schleifeninvariante.tex}
 \input{../sections/woerter.tex}
-\input{../sections/sprachen.tex}
-\input{../sections/grammatiken.tex}
 
 \section{Abschluss}
 \subsection{Zusammenfassung}
 \begin{frame}
   \frametitle{Was ihr mitnehmen sollt}
   \begin{enumerate}
-    \item Alphabete sind Mengen von Zeichen
-    \item Wörter sind Folgen von Zeichen
-    \item Formale Sprachen sind Mengen von Worten
-    \item Kontextfreie Grammatiken erzeugen formale Sprachen
+    \item Schleifeninvarianten \emph{finden} und \emph{beweisen}.
+    \item (x mod n) ist der Rest einer ganzzahligen Division von x mit n
+    \item (x div n) ist der Quotient einer ganzzahligen Division von x mit n
+    \item Wörter sind surjektive Abbildungen von $\mathbb{G}_n$ auf ein Alphabet.
    \end{enumerate}
 \end{frame}
 
