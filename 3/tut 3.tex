@@ -1,0 +1,65 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}{../comics/}}
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{3. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Was oft falsch gemacht wurde:}
+  \begin{itemize}
+    \item Fehler
+  \end{itemize}
+\end{frame}
+
+\input{../sections/grammatiken.tex}
+\input{../sections/relationen2.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr mitnehmen sollt}
+  \begin{enumerate}
+    \item Zeug
+  \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=320pt]{laundry}
+    \end{center}
+  \end{figure}
+\end{frame}
+
+\end{document}

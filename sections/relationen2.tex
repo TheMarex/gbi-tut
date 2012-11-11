@@ -1,0 +1,127 @@
+\section{Relationen}
+\subsection{Motivation}
+\begin{frame}
+	\frametitle{Motivation Relationen}
+	\begin{alertblock}{Anschaulich}
+		Durch Relationen werden Elemente einer oder mehrerer Mengen in Beziehung zueinander gesetzt:
+	\end{alertblock}\pause
+  \begin{exampleblock}{Beispiele}
+		\begin{itemize}
+			\item Ford ist mit Arthur, Zap und Trillian befreundet.
+      \item 4 ist kleiner als 5, 3 ist kleiner als 13, ...
+		\end{itemize}
+  \end{exampleblock}\pause
+	\begin{block}{Wozu brauchen wir das?}
+		Relationen werden zur Modellierung von Systemen benötigt: \pause
+		\begin{itemize}
+			\item Relationen sind Grundlage der verschiedenen Diagramme der UML.
+			\item Graphen sind graphische Darstellungen von Relationen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\subsection{Definitionen}
+\begin{frame}
+  \frametitle{Relation}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ R \subseteq A \times B $
+      \item R ist eine Teilmenge des Kreuzproduktes zweier Mengen und heißt \emph{Relation}.
+      \item Man schreibt auch: xRy für $(x, y) \in R$
+      \item Ist A = B so nennt man R auch eine \emph{homogene} Relation.
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Produkt von Relationen}
+	\begin{definition}
+		Sind $R \subseteq M_1 \times M_2$ und $S \subseteq M_2 \times M_3$ zwei Relationen.\\
+    \begin{itemize}
+			\item $S \circ R = \{(x,z) \in M_1 \times M_3 \mid \exists y \in M_2 : (x,y) \in R \wedge (y,z) \in S \}$ heißt das \emph{Produkt der Relationen S und R}.
+			\item $Id_M = \{(x,x) \mid x \in M \}$ heißt die \emph{identische Abbildung}
+    \end{itemize}
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Potenz von Relationen}
+  \begin{definition}
+		Sei $R \subseteq M \times M$ eine \emph{homogene} Relation.
+    $R^i$ heißt die {\em i-te Potenz} von R und ist definiert als:
+    \begin{itemize}
+			\item $R^0=Id_M$
+			\item $\forall i \in \mathbb N_0: R^{i+1}=R \circ R^i$
+    \end{itemize}
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Äquivalenzrelation}
+	\begin{definition}
+    Sei R eine homogene Relation über M. $x, y, z \in M$.\\
+    Hat R folgende Eigenschaften:
+		\begin{description}
+			\item[reflexiv] $x R x$
+			\item[transitiv] $x R y \wedge y R z \Rightarrow x R z$
+			\item[symmetrisch] $x R y \Rightarrow y R x$
+		\end{description}
+		So heißt R eine \emph{Äquivalenzrelation}.
+	\end{definition}
+\end{frame}
+
+\subsection{Reflexiv-transitive Hülle}
+\begin{frame}
+	\frametitle{Reflexiv-Transitive Hülle}
+	\begin{definition}
+    Sei R eine Relation.\\
+		$R^* = \bigcup \limits_{i=0}^{\infty} R^i$\\
+		$R^*$ heißt die \emph{reflexiv-transitive Hülle} von R.
+	\end{definition} \pause
+  \begin{alertblock}{Anschaulich}
+		Sie ist die Erweiterung der Relation um die Paare, die notwendig sind um Reflexivität und Transitivität herzustellen.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Facebook Freundschaften}
+	\begin{exampleblock}{}
+			Sei $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \}$ eine Menge von Nutzern.\\
+			$R \subseteq M \times M $ sei die "`ist-befreundet-mit"'-Relation.
+		\begin{itemize}
+			\item $R = \{ (Martin,Holger), (Lars,Katja), (Nina,Holger),$ \\
+						$(Gertrud,Holger), (Katja, Nina) \} \bigcup \{${dazu sym. Tupel}$\}$ \pause
+			\item $R^0=\{ (Martin,Martin), ..., (Holger,Holger) \}$ \pause
+			\item $R^1=R$ "'Freundschaft 1. Grades."' \pause
+			\item $R^2=\{ (Martin,Nina), (Martin,Gertrud), (Martin,Martin),$ \\
+						$(Lars,Nina), (Lars,Lars), (Nina,Gertrud),(Nina,Martin),$ \\
+						$(Nina,Nina), (Nina,Lars), (Katja,Katja), (Katja,Holger), $ \\
+						$(Gertrud,Gertrud), (Gertrud,Martin), (Gertrud,Nina), $ \\
+						$(Holger,Holger), (Holger,Katja)\}$ "'Freundschaft 2. Grades"' \pause
+			\item $R^*=?$ "'Gibt es eine Verbindung durch Freunde beliebigen Grades?"'
+			%\item wegen Symmetrie und Unsinnigkeit der Reflexivität, entfällt Einiges % Funktionen sind kommutativ, Relationen symmetrisch
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+	\frametitle{Aufgaben}
+  \begin{exampleblock}{}
+    Bestimmt die reflexiv-transitive Hülle der Relationen.\\
+    $M := \{1, 2, 3, 4\}, R_i \subset M \times M$
+    \begin{enumerate}
+      \item $R_1 := \{(1, 2), (1, 4), (2, 3)\}$
+      \item $R_2 := \{(1, 1), (2, 2)\}$
+      \item $R_3 := \{(1, 2), (3, 4), (4, 2)\}$
+    \end{enumerate}
+  \end{exampleblock}\pause
+  \begin{exampleblock}{Lösungen}
+    \begin{enumerate}
+      \item $R_1^* := \{(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (3, 3), (4, 4)\}$
+      \item $R_2^* := \{(1, 1), (2, 2), (3, 3), (4, 4)\}$
+      \item $R_3^* := \{(1, 1), (1, 2), (2, 2), (2, 3), (2, 4),$
+            $ (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)\}$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
