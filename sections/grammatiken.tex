@@ -49,7 +49,7 @@
 
 \begin{frame}
   \frametitle{Beispiele}
-    $G = (\{a, b\}, \{X, Y\}, X, \{X \longrightarrow XY | a, Y \longrightarrow b\})$
+    $G = (\{X, Y\}, \{a, b\}, X, \{X \longrightarrow XY | a, Y \longrightarrow b\})$
   \begin{exampleblock}{}
     \begin{enumerate}
       \item $aX \Longrightarrow aXY$ aber \emph{nicht} $aX \longrightarrow aXY$
@@ -66,13 +66,13 @@
     \begin{enumerate}
       \item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?
       \item Welche Sprache erzeugt: $G_1 := (\{X\}, \{0\}, X, \{X \longrightarrow X\})$
-      \item Ist $G_2 := (\{a, b\}, \{X\}, X, \{X \longrightarrow \varepsilon\})$ eine gültige Grammatik?
+      \item Ist $G_2 := (\{X\}, \{a, b\}, X, \{X \longrightarrow \varepsilon\})$ eine gültige Grammatik?
     \end{enumerate}
   \end{exampleblock}
   \begin{exampleblock}{}
     \begin{enumerate}
       \pause
-      \item Ja z.B. $G = (\{0\}, \{X\}, X, \{\})$
+      \item Ja z.B. $G = (\{X\}, \{0\}, X, \{\})$
       \pause
       \item $L(G_1) = \{\}$
       \pause
@@ -91,7 +91,7 @@
   \end{exampleblock}
   \begin{exampleblock}{Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:}
         \begin{enumerate}
-      \item $L_1 := \{ab, cd\}^* \cdot \{a, c\}^2$
+      \item $L_1 := \{ab, cd\}^+ \cdot \{a, c\}^2$
       \item $A := \{0, 1\}$, $L_2 := \{w  \in A^*| Num_0(w) = Num_1(w)\}$
     \end{enumerate}
   \end{exampleblock}
@@ -106,9 +106,9 @@
     $G = (N, T, S, P)$
     \begin{itemize}
       \item $N = \{E, A, B\}$
-      \item $T = \{a, b, c, ., \_\}$
+      \item $T = \{a, b, c, ., \_, @\}$
       \item $S = E$
-      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow B|\_A|.A, B \longrightarrow aB | bB | cB | \varepsilon\}$
+      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow BA|\_A|.A, B \longrightarrow aB | bB | cB | \varepsilon\}$
     \end{itemize}
   \end{exampleblock}
 \end{frame}
