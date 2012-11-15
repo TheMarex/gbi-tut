@@ -31,6 +31,34 @@
   \end{exampleblock}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Ableitungen}
+  \begin{definition}
+    Sei $G = (T, N, S, P)$ eine Grammatik. $w, w' \in (T \cup N)^*$.
+    Man schreibt:
+    \begin{description}
+      \item[$w \Longrightarrow w'$] Das Wort w kann in das Wort w' durch anwenden
+        \emph{einer} Produktion auf ein Nicht-Terminalsymbols ableiten.
+      \item[$w \Longrightarrow^i w'$] Das Wort w kann in das Wort w' durch anwenden vom
+        \emph{i} Produktionen auf Nicht-Terminalsymbole ableiten.
+      \item[$w \Longrightarrow^* w'$] Das Wort w kann in das Wort w' durch anwenden vom
+        \emph{beliebig vielen} Produktionen auf Nicht-Terminalsymbole ableiten.
+    \end{description}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beispiele}
+    $G = (\{a, b\}, \{X, Y\}, X, \{X \longrightarrow XY | a, Y \longrightarrow b\})$
+  \begin{exampleblock}{}
+    \begin{enumerate}
+      \item $aX \Longrightarrow aXY$ aber \emph{nicht} $aX \longrightarrow aXY$
+      \item $aXbbb \Longrightarrow^2 aaYbbb$ da $aXbbb \Longrightarrow aXYbbb \Longrightarrow aaYbbb$
+      \item $ X \Longrightarrow^* aaaaabbbb$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
 \subsection{Aufgaben}
 \begin{frame}
   \frametitle{Fragen}
@@ -38,21 +66,31 @@
     \begin{enumerate}
       \item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?
       \item Welche Sprache erzeugt: $G_1 := (\{X\}, \{0\}, X, \{X \longrightarrow X\})$
-      \item Ist $G_2 := (\{X\}, \{a, b\}, a, \{X \longrightarrow \varepsilon\})$ eine gültige Grammatik?
+      \item Ist $G_2 := (\{a, b\}, \{X\}, X, \{X \longrightarrow \varepsilon\})$ eine gültige Grammatik?
+    \end{enumerate}
+  \end{exampleblock}
+  \begin{exampleblock}{}
+    \begin{enumerate}
+      \pause
+      \item Ja z.B. $G = (\{0\}, \{X\}, X, \{\})$
+      \pause
+      \item $L(G_1) = \{\}$
+      \pause
+      \item Ja und $L(G_2) = \{\varepsilon\}$
     \end{enumerate}
   \end{exampleblock}
 \end{frame}
 \begin{frame}
   \frametitle{Aufgaben}
-  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
-    Welche Sprachen erzeuge folgende Grammatiken.
+  \begin{exampleblock}{Welche Sprachen erzeugen folgende Grammatiken.}
     \begin{enumerate}
       \item $G_1 := (\{X, Y\}, \{a, b\}, X, \{X \longrightarrow aY | \varepsilon, Y \longrightarrow bX\})$
       \item $G_2 := (\{X, Y, Z\}, \{a, b, c\}, X,$\\
              $\{X \longrightarrow Ya | Yb | Yc, Y \longrightarrow ZZY | \varepsilon, Z \longrightarrow a | b | c\})$
     \end{enumerate}
-    Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:
-    \begin{enumerate}
+  \end{exampleblock}
+  \begin{exampleblock}{Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:}
+        \begin{enumerate}
       \item $L_1 := \{ab, cd\}^* \cdot \{a, c\}^2$
       \item $A := \{0, 1\}$, $L_2 := \{w  \in A^*| Num_0(w) = Num_1(w)\}$
     \end{enumerate}
@@ -70,7 +108,7 @@
       \item $N = \{E, A, B\}$
       \item $T = \{a, b, c, ., \_\}$
       \item $S = E$
-      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow B|\_A, B \longrightarrow aB | bB | cB | \varepsilon\}$
+      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow B|\_A|.A, B \longrightarrow aB | bB | cB | \varepsilon\}$
     \end{itemize}
   \end{exampleblock}
 \end{frame}
