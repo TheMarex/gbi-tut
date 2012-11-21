@@ -1,17 +1,36 @@
+
 \section{Graphen}
+\subsection{Motivation}
+\begin{frame}[fragile]
+  \frametitle{Was ist ein Graph?}
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                      semithick]
+    \begin{dot2tex}[styleonly,codeonly,neato]
+      digraph G {
+        d2ttikzedgelabels = true;
+        node [style="state"];
+        edge [style="-to",topath="bend left"];
+        A -> B
+        B -> B [topath="loop above"]
+        B -> C
+        C -> B
+        C -> A
+      }
+    \end{dot2tex}
+  \end{tikzpicture}
+\end{frame}
+
 \subsection{Definitionen}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Gerichtete Graphen}
   \begin{definition}
-    \begin{description}{Seien folgende Mengen gegeben:}
+    \begin{description}
       \item[V:] Menge von Knoten
       \item[$E \subset V \times V$:] Menge von Kanten
     \end{description}
     Dann heißt der Tupel G := (V, E) ein gerichteter \emph{Graph}.
   \end{definition}\pause
   \begin{exampleblock}{Beispiele}
-    \begin{itemize}
-    \end{itemize}
   \end{exampleblock}
 \end{frame}
 \begin{frame}
@@ -19,8 +38,8 @@
   \begin{definition}
     Sei G = (V, E) ein gerichteter Graph.
     \begin{description}
-      \item[Ausgangsgrad:] $d_+(x) := |{(x, e) \in E | e \in V}|$
-      \item[Eingangsgrad:] $d_-(x) := |{(e, x) \in E | e \in V}|$
+      \item[Ausgangsgrad:] $d_+(x) := |\{(x, e) \in E | e \in V\}|$
+      \item[Eingangsgrad:] $d_-(x) := |\{(e, x) \in E | e \in V\}|$
     \end{description}
   \end{definition}\pause
 \end{frame}

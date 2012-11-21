@@ -3,12 +3,22 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[ngerman]{babel}
+
 \usepackage{graphics}
+
 \usepackage{amsmath}
+
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{automata}
+
 \usetheme{Singapore}
 \usecolortheme{dove}
 \graphicspath{{images/}{../comics/}}
+
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
+
 \AtBeginSection[]
 {
   \begin{frame}[plain]
@@ -43,8 +53,7 @@
   \end{itemize}
 \end{frame}
 
-\input{../sections/grammatiken.tex}
-\input{../sections/relationen2.tex}
+\input{../sections/graphen.tex}
 
 \section{Abschluss}
 \subsection{Zusammenfassung}
