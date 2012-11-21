@@ -1,0 +1,43 @@
+
+\section{Graphen}
+\subsection{Motivation}
+\begin{frame}[fragile]
+  \frametitle{Was ist ein Automat?}
+  \begin{tikzpicture}[]
+    \begin{dot2tex}[styleonly,codeonly,neato]
+      digraph G {
+        d2ttikzedgelabels = true;
+        node [style="state"];
+        edge [lblstyle="auto",topath="bend left"];
+        q_0 [style="state, initial"];
+        q_0 -> q_1 [label=b]
+        q_0 -> q_2 [label=a]
+        q_1 -> q_1 [label=b,topath="loop above"];
+        q_2 [style="state,accepting"];
+      }
+    \end{dot2tex}
+  \end{tikzpicture}
+\end{frame}
+
+\subsection{Definitionen}
+\begin{frame}[fragile]
+  \frametitle{Endlicher Automat}
+  \begin{definition}
+    \begin{description}
+      \item bla
+    \end{description}
+  \end{definition}\pause
+  \begin{exampleblock}{Beispiele}
+  \end{exampleblock}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+      Anweisung
+      \begin{enumerate}
+        \item Aufgabe
+      \end{enumerate}
+  \end{exampleblock}
+\end{frame}
