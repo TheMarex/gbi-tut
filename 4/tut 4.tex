@@ -1,0 +1,67 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}{../comics/}}
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{4. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Anmerkungen zum letzten Übungsblatt}
+  \begin{itemize}
+    \item $k_{i+1} \longleftarrow k_i + 1$
+    \item Schleifenkopf-Bedingung bei Vollständigen Induktion beachten.
+    \item Immer hinschreiben aus welcher Menge eine Variable ist.
+  \end{itemize}
+\end{frame}
+
+\input{../sections/grammatiken.tex}
+\input{../sections/relationen2.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr mitnehmen sollt}
+  \begin{enumerate}
+    \item bla
+  \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=320pt]{computer_problems}
+    \end{center}
+  \end{figure}
+\end{frame}
+
+\end{document}
