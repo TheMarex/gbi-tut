@@ -1,0 +1,91 @@
+\section{Übersetzungen}
+\subsection{Warum?}
+\begin{frame}
+	\frametitle{Wozu Übersetzungen?}
+	\pause
+	\begin{itemize}
+		\item Lesbarkeit
+		\item Kompression
+		\item Verschlüsselung
+		\item Fehlererkennung und -korrektur
+		\item \dots
+	\end{itemize}
+\end{frame}
+
+\subsection{Homomorphismen}
+\begin{frame}
+	\begin{exampleblock}{Beispiel}
+		$h(a)=001$\\
+		$h(b)=1101$\\
+		Also gilt:
+		\begin{eqnarray*}
+			h(bba)&=&h(b)h(b)h(a)\\
+			&=&1101\cdot 1101\cdot 001\\
+			&=&11011101001
+		\end{eqnarray*}
+	\end{exampleblock}
+	\pause
+	\begin{definition}
+		Der Homomorphismus $h^{**}:A^*\rightarrow B^*$ sei wie folgt definiert:
+		\begin{eqnarray*}
+			h^{**}(\varepsilon)&=&\varepsilon \\
+			\forall w\in A^*:\forall x\in A:h^{**}(wx)&=&h^{**}(w)h(x)
+		\end{eqnarray*}
+	\end{definition}
+\end{frame}
+
+\subsection{$\varepsilon$-freier Homomorphismus}
+\begin{frame}
+	\frametitle{$\varepsilon$-freier Homomorphismus}
+	\begin{definition}
+		Ein Homomorphismus ist $\varepsilon$-frei, wenn für alle $x\in A$ gilt: $h(x)\neq \varepsilon$.
+	\end{definition}
+
+	Warum sollte ein Homomorphismus $\varepsilon$-frei sein?
+	\begin{exampleblock}{Beispiel}
+		$h(a)=001$\\
+		$h(b)=\varepsilon$\\
+		\pause
+		Es sei $h(w)=001$. Dann ist $w$ nicht eindeutig bestimmt.
+		Es ist "`Information verloren gegangen"'.
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+	\frametitle{"`Informationsverlust"'}
+	\begin{exampleblock}{Beispiel}
+		$h(a)=0$\\
+		$h(b)=1$\\
+		$h(c)=10$\\
+		\visible<2->{$h(bac)=1010$}\visible<3->{$=h(cab)=h(cc)$}
+	\end{exampleblock}
+	\begin{itemize}
+		\item Warum geht bei dieser Übersetzung Information verloren?
+		\pause
+		\item Wie kann man allgemein ausdrücken, wann Information verloren geht?\\
+		\visible<3->{$\exists w_1\neq w_2$ mit $h^{**}(w_1)=h^{**}(w_2)$}
+	\end{itemize}
+	\pause
+\end{frame}
+\subsection{Präfixfreiheit}
+\begin{frame}
+	\frametitle{Präfixfreiheit}
+	\begin{definition}
+		Für keine zwei Symbole $x_1,x_2\in A$ gilt: $h(x_1)$ ist Präfix von $h(x_2)$
+	\end{definition}
+	\begin{exampleblock}{Beispiele}
+		Welche Codierungen sind präfixfrei?:
+		\begin{itemize}
+			\item $h(a)=001, h(b)=1101 $ \pause \checkmark\\
+			\item $h(a)=01, h(b)=011 $ \pause x\\
+			\item $h(a)=011, h(b)=110 $ \pause \checkmark\\
+			\item $h(a)=42, h(b)=4, h(b)=24 $ \pause x\\
+		\end{itemize}
+
+		
+	\end{exampleblock}
+
+\end{frame}
+
+
+
+

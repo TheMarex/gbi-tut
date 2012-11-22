@@ -1,0 +1,59 @@
+\section{Huffman-Codierung}
+\subsection{Aufgaben}
+\begin{frame}
+	\begin{block}{Aufgabe}
+		Gegeben sei das Wort $eaebcaebacbde$.
+		\begin{enumerate}
+			\item Konstruiere den dazugehörigen Huffman-Baum
+			\item Codiere das Wort
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Aufgabe}
+		\begin{itemize}
+			\item Codiere das Wort $badcfehg$.
+			\item Wie lang wird die Codierung?
+		\end{itemize}
+	\end{block}
+	\begin{block}{Aufgabe}
+		\begin{itemize}
+			\item Es sei folgende Zeichenverteilung gegeben:
+		\end{itemize}
+			\begin{tabular}{ccccccccc}
+				\toprule
+				Zeichen&a&b&c&d&e&f&g&h\\
+				\midrule
+				Häufigkeit&1&2&4&8&16&32&64&128\\
+				\bottomrule
+			\end{tabular}
+		\begin{itemize}
+			\item Codiere erneut das Wort $badcfehg$.
+			\item Wie lang wird dieses Mal die Codierung?
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}[plain]
+	\begin{block}{Klausur-Aufgabe}
+  Gegeben sei ein Wort uber dem Alphabet $A = \{a, b, c, d\}$ mit folgenden relativen Häufigkeiten:
+    \begin{tabular}{ccccccccc}
+      \toprule
+      Zeichen&a&b&c&d&\\
+      \midrule
+      Häufigkeit & x & $\frac{1}{4}$ & $\frac{1}{4}$ & $\frac{1}{2} - x$\\
+      \bottomrule
+    \end{tabular}\\
+    $0 \leq x \leq \frac{1}{4}$\pause
+		\begin{enumerate}
+			\item Konstruieren Sie den Huffman-Baum für $x = \frac{1}{16}$.
+      \item Welche Struktur muss der Huffman-Baum haben, damit die Huffman-Codierung
+            eines Wortes $w \in A^+$ mit den in der Tabelle angegebenen relativen
+            Häufigkeiten echt kürzer als $2|w|$ sein kann?
+      \item Für welche $x \in \mathbb{R}$ mit $0 \leq x \leq \frac{1}{4}$ werden Wörter
+            mit den angegebenen relativen Häufigkeiten auf genau doppelt so
+            lange Wörter über $\{0, 1\}$ abgebildet?
+		\end{enumerate}
+	\end{block}
+\end{frame}

@@ -1,0 +1,49 @@
+\section{Von Wörtern zu Zahlen und zurück}
+\subsection{Dezimaldarstellung von Zahlen}
+\begin{frame}
+	\frametitle{Dezimaldarstellung von Zahlen}
+	\begin{definition}
+		Gegeben sei ein Alphabet $Z_{10}=\{0,1,2,3,4,5,6,7,8,9\}$\\
+		\vspace{.5cm}
+		$\forall x\in Z_{10}:\text{num}_{10}(x)$ ist der Zahlenwert von $x$.
+		\pause
+		\begin{eqnarray*}
+			\text{Num}_{10}(\varepsilon)&=&0\\
+			\forall w\in Z_{10}^* \forall x\in Z_{10}: \text{Num}_{10}(wx)&=&10\cdot \text{Num}_{10}(w)+\text{num}_{10}(x)
+		\end{eqnarray*}
+	\end{definition}
+\end{frame}
+
+\subsection{Andere Zahldarstellungen}
+\begin{frame}
+	\frametitle{Andere Zahldarstellungen}
+	\begin{block}{Umwandlung}
+		Num$_k(wx)=k\cdot$Num$_k(w)+$num$_k(w)$
+	\end{block}
+	\pause
+	\begin{exampleblock}{Beispiel}
+		\begin{itemize}
+			\item Num$_2(101010)=\only<3->{42}$
+			\item Num$_3(1021)=\only<4->{34}$
+			\item \only<-8>{Num$_2(1)=\only<5->{1}$}\only<9->{Num$_3(2)=\only<10->{2}$}
+			\item \only<-8>{Num$_2(11)=\only<6->{3}$}\only<9->{Num$_3(22)=\only<11->{8}$}
+			\item \only<-8>{Num$_2(111)=\only<7->{7}$}\only<9->{Num$_3(222)=\only<12->{26}$}
+			\item \only<-8>{Num$_2(1111)=\only<8->{15}$}\only<9->{Num$_3(2222)=\only<13->{80}$}
+		\end{itemize}
+
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithmus zur Umwandlung Binärdarstellung $\rightarrow$ Zahl}
+	// Eingabe: $w\in Z_2^*$\\
+	x $\leftarrow$ 0\\
+	\visible<4->{$v\leftarrow \varepsilon$\\}
+	\visible<2->{\textbf{for} $i\leftarrow 0$ \textbf{to} $|w|-1$ \textbf{do}\\
+	\visible<4->{\hspace{0.4cm}$v\leftarrow v\cdot w(i)$\\}
+	\hspace{.4cm}$x\leftarrow 2x+$ num$_2(w(i))$\\
+	\textbf{od}\\}
+
+	// Hier soll gelten: \visible<3->{$x =$ Num$_2(w)$}
+\end{frame}
+

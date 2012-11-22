@@ -1,0 +1,106 @@
+\section{Speicher}
+\subsection{Bit}
+\begin{frame}
+	\frametitle{Bit}
+	\begin{description}
+		\item[Was ist ein Bit?] \only<2->{Ein Zeichen aus dem Alphabet $\{0,1\}$}
+	\end{description}
+	\pause
+	\pause
+	\begin{block}{Herkunft des Namens}
+		\begin{itemize}
+			\item \textbf{bi}nary dig\textbf{it}
+			\item \textbf{B}asic Indissoluble \textbf{I}nformation Uni\textbf{t}
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Abkürzung}
+		$b$ oder $bit$
+	\end{block}
+\end{frame}
+
+\subsection{Byte}
+\begin{frame}
+	\frametitle{Byte}
+	\begin{description}
+		\item[Was ist ein Byte?] Ein Wort über dem Alphabet $\{0,1\}$ der Länge 8\footnote{ursprünglich der Länge 6}
+	\end{description}
+	\pause
+	\begin{block}{Herkunft des Namens}
+		In Anlehnung an die englischen Wörter \textit{bit} und \textit{bite}.\\
+		Oft auch als \textit{Octet} bezeichnet.
+	\end{block}
+	\pause
+	\begin{block}{Abkürzung}
+		$B$ für $Byte$\\
+		$o$ für $Octet$\\
+	\end{block}
+\end{frame}
+
+\subsection{Größenpräfixe}
+\begin{frame}[plain]
+	\frametitle{Speicher-Präfixe}
+	Um die Größe von "`großen"' Speichern zu beschreiben verwendet man Präfixe:
+	\begin{block}{Dezimal}
+		\begin{tabular}{rccc}
+			1000&$10^{3}$&kilo&k\\
+			1000000&$10^{6}$&mega&M\\
+			1000000000&$10^{9}$&giga&G\\
+			1000000000000&$10^{12}$&tera&T\\
+			1000000000000000&$10^{15}$&peta&P\\
+			1000000000000000000&$10^{18}$&exa&E\\
+		\end{tabular}
+
+	\end{block}
+	\begin{block}{Binär}
+		\begin{tabular}{rccc}
+			$1024$&$2^{10}$&kibi&ki\\
+			$1048576$&$2^{20}$&mebi&Mi\\
+			$1073741824$&$2^{30}$&gibi&Gi\\
+			$1,099511628*10^{12}$&$2^{40}$&tebi&Ti\\
+			$1,125899907*10^{15}$&$2^{50}$&pebi&Pi\\
+			$1,152921505*10^{18}$&$2^{60}$&exbi&Ei\\
+		\end{tabular}
+	\end{block}
+
+\end{frame}
+
+
+\subsection{Speicher als Abbildung}
+\begin{frame}
+	\frametitle{Speicher als Abbildung}
+	\begin{tabular}{cc}
+		\toprule
+		Adresse&Wert\\
+		\midrule
+		000&10101000\\
+		001&01101001\\
+		010&01010011\\
+		011&10100110\\
+		100&11001101\\
+		101&11011001\\
+		110&00101011\\
+		111&00000100\\
+		\bottomrule
+	\end{tabular}
+	\begin{block}{Relation}
+		$m:\text{Adr}\rightarrow\text{Val}$\\
+		\vspace{.2cm}
+		Der an der Stelle $a\in$ Adr gespeicherte Wert $v\in$ Val ist $m(a)$.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Speicher als Abbildung}
+	\begin{exampleblock}{Beispiel}
+		Gegeben sei ein Rechner mit 8\,GiB Hauptspeicher. Mit einer Adresse adressiert man ein Byte.\\
+		Wie sieht die Abbildung $m$ für diesen Fall aus?
+		\pause
+		\begin{equation*}
+			m:\{0,1\}^{64}\rightarrow \{0,1\}^8
+		\end{equation*}
+	\end{exampleblock}
+\end{frame}
+
+
+
