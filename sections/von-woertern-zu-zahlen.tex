@@ -18,7 +18,7 @@
 \begin{frame}
 	\frametitle{Andere Zahldarstellungen}
 	\begin{block}{Umwandlung}
-		Num$_k(wx)=k\cdot$Num$_k(w)+$num$_k(w)$
+		Num$_k(wx)=k\cdot$Num$_k(w)+$num$_k(x)$
 	\end{block}
 	\pause
 	\begin{exampleblock}{Beispiel}
@@ -38,9 +38,7 @@
 	\frametitle{Algorithmus zur Umwandlung Binärdarstellung $\rightarrow$ Zahl}
 	// Eingabe: $w\in Z_2^*$\\
 	x $\leftarrow$ 0\\
-	\visible<4->{$v\leftarrow \varepsilon$\\}
-	\visible<2->{\textbf{for} $i\leftarrow 0$ \textbf{to} $|w|-1$ \textbf{do}\\
-	\visible<4->{\hspace{0.4cm}$v\leftarrow v\cdot w(i)$\\}
+	{\textbf{for} $i\leftarrow 0$ \textbf{to} $|w|-1$ \textbf{do}\\
 	\hspace{.4cm}$x\leftarrow 2x+$ num$_2(w(i))$\\
 	\textbf{od}\\}
 
