@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+
+\usepackage{graphics}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{automata}
+
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}{../comics/}}
+
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{5. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Anmerkungen zum letzten Übungsblatt}
+  \begin{enumerate}
+    \item Ein Ableitungsbaum beinhaltet in jedem Knoten genau ein Symbol.
+    \item Als Startsymbol bei einer Grammatik, verwendet man genau ein Symbol.
+    \item Wenn man schreiben will "'w lässt sich von der Grammatik G erzeugen"' kann man schreiben:
+      \begin{description}
+        \item[$w \in L(G)$:] w ist in der Sprache die G erzeugt. ($w \in T^*$)
+        \item[$S \Longrightarrow^* w$:] w lässt sich in beliebig vielen Schritten ableiten.
+        \item[$S \Longrightarrow^n w$:] w lässt sich in n Schritten ableiten.
+      \end{description}
+    \item L(G) enthält nur Wörter aus \emph{Terminalsymbolen}.
+  \end{enumerate}
+\end{frame}
+
+\input{../sections/graphen.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr jetzt wissen sollte.}
+  \begin{enumerate}
+    \item Wie ist ein gerichteter Graph definiert?
+    \item Wie ist ein ungerichteter Graph definiert?
+    \item Was ist ein Pfad/Weg?
+    \item Was sind Schleifen?
+    \item Was ist ein zusammenhängender Graph?
+    \item Was ist ein Baum?
+    \item Wie sieht der zu einem ungerichteten Graphen gehörende gerichtete Graph aus?
+  \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=320pt]{not_enough_work}
+    \end{center}
+  \end{figure}
+  {\tiny It's even harder if you are an asshole who pronounces <> brackets.}
+\end{frame}
+
+\end{document}
