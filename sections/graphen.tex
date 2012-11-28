@@ -359,3 +359,79 @@
     \end{figure}
   \end{exampleblock}
 \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{}
+    Welche der Graphen sind gültige Graphen?
+    \begin{figure}
+      \begin{minipage}{2.5cm}
+        \begin{tikzpicture}[auto, semithick, scale=.5]
+          \begin{dot2tex}[codeonly,twopi]
+            graph G {
+              d2ttikzedgelabels = true;
+              node [shape="circle"];
+              edge [];
+              0 -- 1 [topath="bend left"];
+              0 -- 1 [topath="bend right"];
+              2 -- 0;
+            }
+          \end{dot2tex}
+        \end{tikzpicture}
+        \caption{$G_1$}
+      \end{minipage}
+      \begin{minipage}{2.5cm}
+        \begin{tikzpicture}[auto, semithick, scale=.5]
+          \begin{dot2tex}[codeonly,twopi]
+            digraph G {
+              d2ttikzedgelabels = true;
+              node [shape="circle"];
+              edge [];
+              0 -> 1 [topath="bend left"];
+              0 -> 1 [topath="bend right"];
+              2 -> 0;
+            }
+          \end{dot2tex}
+        \end{tikzpicture}
+        \caption{$G_1$}
+      \end{minipage}
+      \begin{minipage}{2.5cm}
+        \begin{tikzpicture}[auto, semithick, scale=.5]
+          \begin{dot2tex}[codeonly,twopi]
+            digraph G {
+              d2ttikzedgelabels = true;
+              node [shape="circle"];
+              edge [];
+              0 -> 1 [topath="bend left"];
+              1 -> 0 [topath="bend left"];
+              2;
+            }
+          \end{dot2tex}
+        \end{tikzpicture}
+        \caption{$G_1$}
+      \end{minipage}
+    \end{figure}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{Sei $G := (V, E)$ ein gerichteter Graph mit $n := |V|$.}
+    \begin{enumerate}
+      \item Wie viele Kanten kann G haben?\\
+        \only<2->{$\Rightarrow$ $|E| \leq |V \times V| = n^2$}
+      \item \only<3->{Wie viele Kanten kann G haben wenn G schlingenfrei ist?}\hfill \\
+        \only<4->{$\Rightarrow$ $|E| \leq |V| \cdot (|V|-1)$}
+    \end{enumerate}
+  \end{exampleblock}
+  \only<5->{
+  \begin{exampleblock}{Sei $U := (V, E)$ nun ein ungerichteter Graph mit $n := |V|$.}
+    \begin{enumerate}
+      \item Wie viele Kanten kann U haben?\\
+        \only<6->{$\Rightarrow$ $|E| \leq {|V| \choose 2} + |V| = {n \choose 2} + n$}
+      \pause
+      \item \only<7->{Wie viele Kanten kann U haben wenn U schlingenfrei ist?}\hfill \\
+        \only<8->{$\Rightarrow$ $|E| \leq {|V| \choose 2} = {n \choose 2}$}
+    \end{enumerate}
+  \end{exampleblock}
+  }
+\end{frame}
