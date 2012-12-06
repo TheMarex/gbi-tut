@@ -1,85 +1,3 @@
-\section{Darstellungsformen}
-\subsection*{}
-\begin{frame}[fragile]
-\frametitle{Graphen im Rechner}
-		\begin{center}
-			\begin{tikzpicture}
-        \tikzstyle{every node}=[draw,shape=circle];
-				\path[fill] (0,0)  node[circle] (a) {a};
-				\path[fill] (0,2)  node[circle] (b) {b};
-				\path[fill] (1.5,1.5)  node[circle] (c) {c};
-				\path[fill] (2,0) node[circle] (d) {d};
-				\path[fill] (2,2)  node[circle] (e) {e};
-
-				\path[->,draw] (a) -- (b);
-				\path[->,draw] (a) -- (d);
-				\path[->,draw] (d) -- (b);
-				\path[->,draw] (b) -- (c);
-				\path[->,draw] (a) -- (c);
-				\path[->,draw] (d) -- (c);
-			\end{tikzpicture}
-		\end{center}
-
-		\begin{block}{Ein Graph - verschiedene Darstellungsformen}
-			\begin{description}
-				\only<-1>{
-					\item[Tupeldarstellung] (aus dem letzten Tut):\\
-					$G = ( \{a,b,c,d,e\},$\\
-					$\{(a,b),(a,c),(a,d),(b,c),(d,b),(d,c)\})$
-				}
-				\only<2>{
-					\item[Adjazenzliste]: 	\\
-										a: [b,c,d]\\
-										b: [c]\\
-										c: []\\
-										d: [b, c]\\
-										e: []
-				}
-				\only<3->{
-					\item[Adjazenzmatrix]
-							$A =$ $\left(
-							\begin{matrix}
-							0 & 1 & 1 & 1 & 0\\
-							0 & 0 & 1 & 0 & 0\\
-							0 & 0 & 0 & 0 & 0\\
-							0 & 1 & 1 & 0 & 0\\
-							0 & 0 & 0 & 0 & 0
-							\end{matrix}
-							\right)$
-				}	\only<4->{
-					 was bedeutet $(A^2)_{ij}$ ?
-				}
-			\end{description}
-		\end{block}
-\end{frame}
-
-\begin{frame}
-\frametitle{Liste vs. Matrix}
-	\begin{block}{Adjazenzlisten}
-	\begin{itemize}
-		\visible<2->{\item einfacher Zugriff auf alle adjazenten Knoten}
-		\visible<3->{\item um zu überprüfen, ob eine Kante existiert, muss man eventuell alle Nachbarn durchgehen}
-	\end{itemize}
-	\end{block}
-
-	\begin{block}{Adjanzenzmatrixen}
-	\begin{itemize}
-		\visible<4->{\item schnelle Überprüfung, ob eine Kante zwischen zwei Knoten $i$ und $j$ existiert}
-		\visible<5->{\item um auf einen Nachbarn zuzugreifen, muss man eventuell alle Knoten durchgehen}
-	\end{itemize}
-	\end{block}
-\end{frame}
-\begin{frame}
-\frametitle{Liste vs. Matrix}
-	\begin{block}{Welche Darstellungsform ist geeigneter?}
-		Für einen...
-		\begin{itemize}
-			\visible<1->{\item vollständigen Graphen? \visible<2->{\\\emph{Adjazenzmatrix}}}\pause
-			\item Graphen mit nur wenigen Kanten? \visible<3->{\\\emph{Adjazenzliste}}\pause
-		\end{itemize}
-	\end{block}
-\end{frame}
-
 \section{Wegematrix}
 \begin{frame}
 	\frametitle{Wegematrix}
@@ -347,6 +265,7 @@
   \end{lstlisting}
 \end{frame}
 
+\subsection{Aufgaben}
 \begin{frame}[fragile]
   \frametitle{Aufgaben}
       Berechnet mit dem Algorithmus von Warshall die Wegematrix.\\
@@ -365,4 +284,23 @@
           \path (1) edge [loop above] ();
         \end{tikzpicture}
       \end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Klausuraufgabe WS 2010/2011 - Nr.2}
+	Für $n\in \mathbb{N}_0, n \geq 2$ sei ein Graph $U_n=(\mathbb{G}_{2n},E_n)$ definiert mit Kantenmenge $E_n=\{\{x,y\}|\text{ggT}(x+y,2n)=1\}$.\\
+	\vspace{.2cm}
+	\begin{exampleblock}{Zur Erinnerung:}
+		\begin{itemize}
+			\item $\forall m\in \mathbb{N}_0: \mathbb{G}_m=\{i|0\leq i<m\}$
+			\item $\text{ggT}(x,y)$ ist der kleinste gemeinsame Teiler von $x$ und $y$
+		\end{itemize}
+	\end{exampleblock}
+	\vspace{.5cm}
+	\pause
+	\begin{description}
+		\item[a)] Zeichnen Sie die Graphen $U_3$, $U_4$ und $U_5$.
+		\item[b)] Geben sie für $U_4$ und $U_5$ jeweils einen Weg an, bei dem der Anfangsknoten gleich dem Endknoten ist und jeder andere Knoten des Graphen genau einmal in dem Weg vorkommt.
+		\item[c)] Geben Sie die Adjazenzmatrix für $U_4$ an.
+	\end{description}
 \end{frame}

@@ -1,0 +1,140 @@
+\section{Graphen im Rechner}
+\subsection{Möglichkeiten}
+\begin{frame}[fragile]
+	\frametitle{Repräsentation von Graphen}
+	\begin{block}{Einstieg}
+		\begin{small}
+		Wie könnte man Graphen im Rechner darstellen?\\
+		Zum Beispiel diesen hier:
+		\end{small}
+		\begin{figure}
+			\begin{minipage}{5.5cm}
+				\begin{tikzpicture}[auto,node distance=0.5cm, semithick]
+					\begin{dot2tex}[styleonly,codeonly, fdp]
+						digraph G {
+							d2ttikzedgelabels = true;
+							node [style="state"];
+							edge [];
+							0->1
+							0->3
+							2->1 [topath="bend left"]
+							2->2 [topath="loop above"]
+							3->2
+							2->3
+						}
+					\end{dot2tex}
+				\end{tikzpicture}
+			\end{minipage}
+		\end{figure}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Adjazenzliste}
+	\begin{wrapfigure}{r}{7cm}
+		\vspace{-1cm}
+			\begin{tikzpicture}[auto,node distance=0.5cm, semithick]
+				\begin{dot2tex}[styleonly,codeonly, fdp]
+					digraph G {
+						d2ttikzedgelabels = true;
+						node [style="state"];
+						edge [];
+						0->1
+						0->3
+						2->1 [topath="bend left"]
+						2->2 [topath="loop above"]
+						3->2
+						2->3
+					}
+				\end{dot2tex}
+			\end{tikzpicture}
+	\end{wrapfigure}
+	Man listet für jeden Knoten dessen benachbarte Knoten auf:\\
+	\vspace{.5cm}
+	\begin{tabular}{cl}
+		\toprule
+		$0$&\visible<2->{$\{1, 3\}$}\\
+		\midrule
+		$1$&\visible<3->{$\{\}$}\\
+		\midrule
+		$2$&\visible<4->{$\{1,2,3\}$}\\
+		\midrule
+		$3$&\visible<5->{$\{2\}$}\\
+		\bottomrule
+	\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Adjazenzmatrix}
+	\begin{wrapfigure}{r}{7cm}
+		\vspace{-2cm}
+		\begin{minipage}{7cm}
+			\begin{tikzpicture}[auto,node distance=0.5cm, semithick]
+				\begin{dot2tex}[styleonly,codeonly, fdp]
+					digraph G {
+						d2ttikzedgelabels = true;
+						node [style="state"];
+						edge [];
+						0->1
+						0->3
+						2->1 [topath="bend left"]
+						2->2 [topath="loop above"]
+						3->2
+						2->3
+					}
+				\end{dot2tex}
+			\end{tikzpicture}
+		\end{minipage}
+	\end{wrapfigure}
+	\begin{tabular}{c||cccc}
+		\toprule
+		&0&1&2&3\\
+		\toprule
+		0&\pause0&1&0&1\\
+		\midrule
+		1&\pause0&0&0&0\\
+		\midrule
+		2&\pause0&1&1&1\\
+		\midrule
+		3&\pause0&0&1&0\\
+		\bottomrule
+	\end{tabular}\\
+	\pause
+	\vspace{.5cm}
+	$A=\begin{pmatrix}0&1&0&1\\0&0&0&0\\0&1&1&1\\0&0&1&0\end{pmatrix}$
+\end{frame}
+\begin{frame}
+	\frametitle{Adjazenzmatrix}
+	\begin{definition}
+		$A_{ij} = \begin{cases}1&\text{falls } (i,j)\in E\\0&\text{falls } (i,j)\notin E\end{cases}$
+	\end{definition}
+\end{frame}
+
+\subsection{Anwendung}
+\begin{frame}
+\frametitle{Liste vs. Matrix}
+	\begin{block}{Adjazenzlisten}
+	\begin{itemize}
+		\visible<2->{\item einfacher Zugriff auf alle adjazenten Knoten}
+		\visible<3->{\item um zu überprüfen, ob eine Kante existiert, muss man eventuell alle Nachbarn durchgehen}
+	\end{itemize}
+	\end{block}
+
+	\begin{block}{Adjanzenzmatrixen}
+	\begin{itemize}
+		\visible<4->{\item schnelle Überprüfung, ob eine Kante zwischen zwei Knoten $i$ und $j$ existiert}
+		\visible<5->{\item um auf einen Nachbarn zuzugreifen, muss man eventuell alle Knoten durchgehen}
+	\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Liste vs. Matrix}
+	\begin{block}{Welche Darstellungsform ist geeigneter?}
+		Für einen...
+		\begin{itemize}
+			\visible<1->{\item vollständigen Graphen? \visible<2->{\\\emph{Adjazenzmatrix}}}\pause
+			\item Graphen mit nur wenigen Kanten? \visible<3->{\\\emph{Adjazenzliste}}\pause
+		\end{itemize}
+	\end{block}
+\end{frame}
+
