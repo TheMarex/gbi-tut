@@ -1,0 +1,11 @@
+*dot2tex-*.tex
+*dot2tex-*.dot
+*.log
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.pdf
+*.dvi
