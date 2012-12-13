@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+
+\usepackage{graphics}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
+
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+ \usetikzlibrary{matrix}
+\usetikzlibrary{automata}
+
+\usepackage{wrapfig}
+
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}{../comics/}}
+
+\newcommand{\xn}{\visible<2->{$\times$}}
+\newcommand{\xj}{\visible<2->{$\checkmark$}}
+\newcommand{\rd}[1]{\textcolor{red}{#1}}
+\newcommand{\gn}[1]{\textcolor{green}{#1}}
+\newcommand{\bl}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+
+\newcommand{\link}[2][blue]{\underline{\textcolor{#1}{#2}}} 	% \link{www.example.org} zeigt www.example.org in blau und unterstrichen
+\renewcommand{\emph}[1]{\textit{\textcolor{blue}{#1}}}			% \emph{Test} zeigt Text in blau und kursiv
+\newcommand{\warn}[1]{\textcolor{red}{#1}}			% \warn{Warning} zeigt Warning in rot und kursiv
+
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{7. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Anmerkungen zum letzten Übungsblatt}
+  \begin{enumerate}
+    \item Bla
+  \end{enumerate}
+\end{frame}
+
+\input{../sections/okalkuel.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr jetzt wissen sollte.}
+  \begin{enumerate}
+    \item Foo
+  \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=200pt]{perspective}
+    \end{center}
+    {\tiny I wonder what I was dreaming to prompt that. I hope it wasn't the Richard Stallman Cirque de Soleil thing again.}
+  \end{figure}
+\end{frame}
+
+\end{document}
