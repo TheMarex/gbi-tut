@@ -1,43 +1,210 @@
-
-\section{Graphen}
-\subsection{Motivation}
-\begin{frame}[fragile]
-  \frametitle{Was ist ein Automat?}
-  \begin{tikzpicture}[]
-    \begin{dot2tex}[styleonly,codeonly,neato]
-      digraph G {
-        d2ttikzedgelabels = true;
-        node [style="state"];
-        edge [lblstyle="auto",topath="bend left"];
-        q_0 [style="state, initial"];
-        q_0 -> q_1 [label=b]
-        q_0 -> q_2 [label=a]
-        q_1 -> q_1 [label=b,topath="loop above"];
-        q_2 [style="state,accepting"];
-      }
-    \end{dot2tex}
-  \end{tikzpicture}
-\end{frame}
-
-\subsection{Definitionen}
-\begin{frame}[fragile]
-  \frametitle{Endlicher Automat}
-  \begin{definition}
-    \begin{description}
-      \item bla
-    \end{description}
-  \end{definition}\pause
-  \begin{exampleblock}{Beispiele}
-  \end{exampleblock}
-\end{frame}
-
-\subsection{Aufgaben}
+\section{Automaten}
+\subsection{Mealy-Automaten}
 \begin{frame}
-  \frametitle{Aufgaben}
-  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
-      Anweisung
-      \begin{enumerate}
-        \item Aufgabe
-      \end{enumerate}
-  \end{exampleblock}
+	\frametitle{Mealy-Automaten}
+	\begin{definition}
+		Ein (endlicher) Mealy-Automat $A=(Z, z_0, X, f, Y, g)$ ist festgelegt durch:
+		\begin{description}
+			\item[$Z$] endliche Zustandsmenge
+			\item[$z_0\in Z$] Startzustand
+			\item[$X$] Eingabealphabet
+			\pause
+			\item[$f:Z\times X\to Z$] Zustandsüberführungsfunktion
+			\pause
+			\item[$Y$] Ausgabealphabet
+			\pause
+			\item[$g:Z\times X\to Y^*$] Ausgabefunktion
+		\end{description}
+	\end{definition}
+	
+	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
+	\tikzstyle{every state}=[fill=white,draw=black,text=black]
+
+	\node[initial,state, initial text= ] (A)                    {$z_0$};
+	\node[state]         (B) [right of=A] {$z_1$};
+
+	\path	(A) edge [loop above] node {b|1} (A)
+				edge [bend left]  node {a|0} (B)
+			(B) edge [loop above] node {b|1} (B)
+				edge [bend left]  node {a|2} (A);
+	\end{tikzpicture}
+\end{frame}
+\begin{frame}
+	\frametitle{Von $f$ zu $f^*$ zu $f^{**}$}
+	\only<1-4>{
+		\begin{definition}
+			$f(z,x)=z'$\\
+			\pause
+			\textbf{In Worten:} $z'$ ist der Zustand, der dem Tupel $(z,x)$ durch die Zustandsüberführungsfunktion $f$ zugeordnet wird.
+		\end{definition}
+		\pause
+	}
+	\begin{definition}
+		\vspace{-.5cm}
+		\begin{eqnarray*}
+			f^*(z,\varepsilon)&=&z\\
+			\forall w\in X^*:\forall x\in X: f^*(z,wx)&=&f(f^*(z,w),x)
+		\end{eqnarray*}
+		\pause
+		\textbf{In Worten:} $f^*$ ordnet dem Tupel $(z,w)$ einen Zustand zu, in dem der Automat sich nach Eingabe des Wortes $w$ befindet.
+	\end{definition}
+	\pause
+	\only<5->{
+		\visible<6->{
+			\begin{definition}
+				\vspace{-.5cm}
+				\visible<6->{
+					\begin{eqnarray*}
+						f^{**}(z,\varepsilon)&=&z\\
+						\forall w\in X^*:\forall x\in X: f^{**}(z,wx)&=&f^{**}(z,w)\cdot f(f^*(z,w),x)
+					\end{eqnarray*}
+				}
+				\visible<7->{
+					\textbf{In Worten:} $f^{**}$ ordnet dem Tupel $(z,w)$ die Konkatenation der Zustände zu, die der Automat bei Eingabe des Wortes $w$ durchläuft.
+				}
+			\end{definition}
+		}
+	}
+\end{frame}
+\begin{frame}
+	\begin{center}
+		\includegraphics{getraenkeautomat}
+	\end{center}
+
+	\begin{block}{Aufgabe}
+		Was sind $f((0,-),Z),f^*((0,-),R1O),f^{**}((0,-),R1O)$ im Getränkeautomat im Graphen und rechnerisch?
+	\end{block}
+\end{frame}
+\begin{frame}
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $f((0,-),Z)$ überführt den Zustand $(0,-)$ in den Zustand $(0,Z)$.
+			\item $f((0,-),Z)=(0,Z)$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $f^*((0,-),R1O)$ ist der Zustand, zu dem man gelangt, indem man nacheinander $R, 1$ und $O$ eingibt.
+		\end{itemize}
+		\begin{eqnarray*}
+			f^*((0,-),R1O)&=&f(f^*((0,-),R1),O)\\
+						&=&f(f(f^*((0,-),R),1),O)\\
+						&=&f(f(f(f^*((0,-),\varepsilon),R),1),O)\\
+						&=&f(f(f((0,-),R),1),O)\\
+						&=&f(f((0,R),1),O)\\
+						&=&f((1,R),O)\\
+						&=&(0,-)
+		\end{eqnarray*}
+
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $f^{**}((0,-),R1O)$ ist die Konkatenation der Zustände, die man nach Eingabe von $R, 1$ und $O$ erhält.
+		\end{itemize}
+		\begin{eqnarray*}
+			f^{**}((0,-),R1O)&=&f^{**}((0,-),R1)\cdot f(f^*((0,-),R1),O)\\
+						&\overset{s.o.}{=}&f^{**}((0,-),R1)\cdot (0,-)\\
+						&=&f^{**}((0,-),R)\cdot f(f^*((0,-),R),1)\cdot (0,-)\\
+						&\overset{s.o.}{=}&f^{**}((0,-),R)\cdot (1,R)\cdot (0,-)\\
+						&=&f^{**}((0,-),\varepsilon)\cdot f(f^*((0,-),\varepsilon),R)\cdot (1,R)\cdot (0,-)\\
+						&=&(0,-)\cdot f((0,-),R)\cdot (1,R)\cdot (0,-)\\
+						&=&(0,-)\cdot (0,R)\cdot (1,R)\cdot (0,-)
+		\end{eqnarray*}
+
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics{getraenkeautomat2}
+	\end{center}
+
+	\begin{block}{Aufgabe}
+		Was sind $g((0,-),Z),g^*((0,-),11ZO),g^{**}((0,-),11ZO)$ im Getränkeautomat im Graphen und rechnerisch?
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $g((0,-),Z)$ gibt $\varepsilon$ aus, da das an der Kante $((0,-),(0,Z))$ definiert ist.
+			\item $g((0,-),Z)=\varepsilon$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $g^*((0,-),11ZO)$ gibt $1$ aus, da eine Münze eingeworfen wurde und durch "`Cancel"' wieder ausgegeben wird.
+			\item $g^*((0,-),11ZO)=\cdots$ Vorgehen analog zu $f^*\cdots = 1$
+		\end{itemize}
+	\end{exampleblock}
+	\pause
+	\begin{exampleblock}{Lösung}
+		\begin{itemize}
+			\item $g^{**}((0,-),11ZO)$ gibt $1$ aus, da eine Münze eingeworfen wurde und durch "`Cancel"' wieder ausgegeben wird.
+			\item $g^{**}((0,-),11ZO)=\cdots$ Vorgehen analog zu $f^{**}\cdots = 1Z$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\section{Moore-Automaten}
+\begin{frame}[plain]
+	\frametitle{Moore-Automaten}
+	\begin{definition}
+		Ein (endlicher) Mealy-Automat $A=(Z, z_0, X, f, Y, g)$ ist festgelegt durch:
+		\begin{description}
+			\item[$Z$] endliche Zustandsmenge
+			\item[$z_0\in Z$] Startzustand
+			\item[$X$] Eingabealphabet
+			\pause
+			\item[$f:Z\times X\to Z$] Zustandsüberführungsfunktion
+			\pause
+			\item[$Y$] Ausgabealphabet
+		\end{description}
+	\end{definition}
+	\begin{alertblock}{Unterschied zu Mealy-Automaten}
+		Ausgabe hängt nur vom Zustand ab (Mealy: von Zustand und Eingabe).
+	\end{alertblock}
+
+	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
+	\tikzstyle{every state}=[fill=white,draw=black,text=black]
+
+	\node[initial,state, initial text= ] (A)    {$z_0|1$};
+	\node[state]         (B) [right of=A] {$z_1|0$};
+
+	\path	(A) edge [bend left]  node {a,b} (B)
+			(B) edge [loop right] node {b} (B)
+				edge [bend left]  node {a} (A);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Aufgabe zum Schluss}
+ 	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
+	\tikzstyle{every state}=[fill=white,draw=black,text=black]
+
+		\node[initial,state, initial text= ] (A) {$q_{\varepsilon}|0$};
+		\node[state]         (B) [above right of=A] {$q_a|0$};
+		\node[state]         (C) [below right of=A] {$q_b|0$};
+		\node[state]         (D) [below right of=B] {$q_f|1$};
+		\node[state]         (E) [right of=D] {$q_r|0$};
+
+		\path	(A) edge node {a} (B)
+					edge node {b} (C)
+				(B) edge [loop above] node {a} (B)
+					edge node {b} (D)
+				(C) edge [loop below] node {b} (C)
+					edge node {a} (D)
+				(D) edge node {a,b} (E)
+				(E) edge [loop right] node {a,b} (E);
+	\end{tikzpicture}
+	\begin{exampleblock}{Aufgabe}
+		Was gibt obiger Automat für ein beliebiges Wort aus $L_1=\{a,b\}^*$ aus?
+	\end{exampleblock}
+
 \end{frame}
