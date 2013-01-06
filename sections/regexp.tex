@@ -1,0 +1,102 @@
+\section{Reguläre Ausdrücke}
+\subsection{Definitionen}
+\begin{frame}
+  \frametitle{Definition}
+  \emph{Reguläre Ausdrücke} sind eine verbreitete Notation, um reguläre
+  Sprachen (Typ-3) zu beschreiben.
+	\begin{block}{Syntax}
+		\begin{tabular}{c p{0.7\textwidth}}
+				\xb{Zeichen} & 	\xb{Bedeutung} \\
+				$( )$			& Klammerung von Alternativen\\
+				$\cdot$			& Verkettet Ausdrücke\\
+				$|$			& trennt Alternativen\\
+				$*$			& beliebig häufiges Vorkommen\\
+		\end{tabular}
+	\end{block}
+  \begin{itemize}
+      \item $*$ bindet stärker als Verkettung
+      \item Verkettung $(R \cdot S)$ bindet stärker als "`oder"' $(R|S)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Die Sprache von R}
+	\begin{definition}
+		Sei $R$ ein regulärer Ausdruck, dann bezeichnet $\langle R \rangle$ die von ihm erzeugte Sprache.
+    Es gilt:
+    \begin{itemize}
+      \item $\langle \emptyset \rangle =\{\}$
+      \item Für $a \in A$ ist $\langle a \rangle=\{a\}$
+      \item $\langle R_1 | R_2 \rangle = \langle R_1 \rangle \cup \langle R_2 \rangle$
+      \item $\langle R_1 R_2 \rangle = \langle R_1 \rangle \cdot \langle R_2 \rangle$
+    \end{itemize}
+    $R_1$ und $R_2$ sind hier zwei beliebige reguläre Ausdrücke.
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beispiele}
+	\begin{exampleblock}{}
+    \begin{itemize}
+      \item $R_1 = ({(a|b)*}c)|({(c|b)*}a)$
+      \item $R_2 = {(a|b|c|\dots|z)*}.jpg$
+      \item $R_3 = {(a|b|c|\dots|z)*}@{(a|b|c|\dots|z)*}.{(a|b|c|\dots|z)*}$
+      \item $Z := (a|b|c|\dots|z)$\\
+            $R_4 = \text{http://}{Z*}.{Z*}(\emptyset|/Z*)*$
+    \end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{enumerate}
+		\item Welche Wörter erzeugt der reguläre Ausdruck: $R=(a|b)*abb(a|b)*$\\
+    \ans{2}{$\langle R \rangle$ enthält alle Wörter mit dem Teilwort $abb$}
+		\item Gebe einen regulären Ausdruck für die Sprache aller Wörter die nicht $ab$ enthalten\\
+		\ans{2}{$R = {b*} {a*}$}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{enumerate}
+		\item Welcher reguläre Ausdruck R erzeugt die Sprache $L=\{\epsilon\}$?
+      \ans{2}{\item $\emptyset*$, denn $\langle \emptyset \rangle ^* = \{\}^* = \{\epsilon\}$}
+		\item Gebe einen regulären Ausdruck für die Sprache aller Wörter mit mindestens 3 b's an!\\
+			\ans{2}{${(a|b)*}{b(a|b)*}{b(a|b)*}{b(a|b)*}$ oder ${a*}{ba*}{ba*}b{(a|b)*}$}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aufgabe}
+  Gegeben ist folgende Klasse von Sprachen über dem Alphabet $\Sigma = \{a,b,c\}$:
+  \begin{multline*}
+    L_n = \{w|
+      \text{w enthält genau einmal das Teilwort $w'=a^n$}\\
+      \text{das nicht Teil von $a^k$ mit $k > n$ ist.}
+          \}
+  \end{multline*}
+  Gebt einen regulären Ausdruck $R$ für $L_4$ an! (also: $\langle R \rangle = L_4$)\\
+  \hfill
+  \ans{2}{
+    Wir stellen sicher, dass $aaaa$ genau einmal vorkommt, und sonst nur 1, 2, 3 oder mehr $a$'s.
+    \begin{multline*}
+      R = ( (b|c)* (\emptyset |a|aa|aaa|aaaaaa*)(b|c)(b|c)*)* \\ aaaa (
+      (b|c)(b|c)*(\emptyset |a|aa|aaa|aaaaaa* )(b|c)*)*
+    \end{multline*}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aufgabe}
+	\begin{exampleblock}{}
+		Sei $R$ ein regulärer Ausdruck für eine formale Sprache $L=\langle R \rangle$. Konstruiere einen regulärer Ausdruck
+  		\begin{enumerate}
+        \item für $L^*$ \\
+          \ans{2}{$R_* = (R)*$}
+        \item für $L^+$ \\
+          \ans{2}{$R_+ = R(R)*$}
+  		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+

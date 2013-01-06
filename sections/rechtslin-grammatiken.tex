@@ -1,0 +1,65 @@
+\section{Rechtslineare Grammatiken}
+\subsection{Definition}
+\begin{frame}
+	\frametitle{rechtslineare Grammatiken}
+	\begin{definition}
+  		Eine rechtslineare Grammatik ist eine kontextfreie Grammatik $G=(N,T,S,P)$ mit folgenden Einschränkungen:\\
+      Alle Produktion sind von der Form:
+  		\begin{description}
+        \item[] $X \rightarrow w$
+        \item[] $X \rightarrow wY$ \hfill ($w \in T^*$\hspace{0.25em} $X,Y \in N$)
+  		\end{description}
+	\end{definition}
+\end{frame}
+\begin{frame}
+  \frametitle{Äquivalenz}
+   Zu jeder rechtslinearen Grammatik gibt es:
+	\begin{itemize}
+		\item \ldots einen entsprechenden regulären Ausdruck und \pause
+		\item \ldots einen einen deterministischen endlichen Automaten
+   \end{itemize}
+\end{frame}
+
+\subsection{Beispiele}
+\begin{frame}
+	\frametitle{Rechtslinear?}
+	\begin{exampleblock}{Ist diese Grammatik rechtslinear?}
+    $G=(\{X,Y\},\{a,b\},X,\{X \rightarrow aY | \epsilon, Y \rightarrow Xb\})$\\
+    \begin{description}
+      \visible<2->{\item[\emph{nicht} rechtslinear:] Betrachte die Produktion $Y \rightarrow Xb$
+      \visible<3->{\item[erzeugte Sprache:] $L(G)=\{a^k b^k | k \in \mathbb N_0 \}$}\\}
+    \end{description}
+	\end{exampleblock}
+  \visible<4->{Kann es eine rechtslineare Grammatik für diese Sprache geben? \\ Ist diese Sprache regulär?}
+  \visible<5->{\warn{Nein, ist sie nicht!}}
+\end{frame}
+
+\subsection{Aufgaben}
+\begin{frame}
+\frametitle{Aufgabe}
+	\begin{block}{Grammatik $\rightarrow$ Automat}
+		$G=(\{X,Y,Z\},\{a,b\},X,P)$\\
+    $P=\{X \rightarrow aX | bY | \epsilon, Y \rightarrow aX | bZ | \epsilon, Z \rightarrow aZ | bZ \}$
+    \begin{enumerate}
+			\item Was ist $L(G)$?
+			\item Geben Sie einen endlichen Automaten an, der L(G) akzeptiert.
+			\item Lässt sich diese Grammatik noch vereinfachen?
+    \end{enumerate}
+	\end{block}
+	\visible<2->{
+	\begin{block}{Lösung}
+      		\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto,initial text=,>=stealth]
+        		\node[state,initial,accepting]  (q_0)                       {$0$};
+       			\node[state,accepting]          (q_1) [right of= q_0] {$1$};
+        		\node[state]                    (q_2) [right of= q_1] {$2$};
+        		\path[->] (q_0) edge [loop below]      node        {$a$} ()
+        		edge [bend right] node [swap] {$b$} (q_1)
+        		(q_1) edge              node        {$b$} (q_2)
+        		edge [bend right] node [swap] {$a$} (q_0)
+        		(q_2) edge [loop below] node        {$a,b$} ()
+        		;
+      		\end{tikzpicture}
+	\end{block}
+	}
+\end{frame}
+

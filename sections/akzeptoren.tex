@@ -1,0 +1,44 @@
+\section{Endliche Automaten}
+\subsection*{}
+\begin{frame}
+  \frametitle{Arten von Automaten}
+  \pause
+  \begin{block}{Mealy-Automat}
+    \begin{itemize}
+      \item Erzeugung einer Ausgabe bei jedem Zustandsübergang
+      \item Ausgabefunktion $g: Z \times X \rightarrow Y^*$
+      \item Markieren der \emph{Kanten} mit $x_i|y_i$
+    \end{itemize}
+   \end{block}
+  \pause
+  \begin{block}{Moore-Automat}
+    \begin{itemize}
+      \item Erzeugung einer Ausgabe bei Erreichen eines Zustands
+      \item Ausgabefunktion $h: Z \rightarrow Y^*$
+      \item Markieren der \emph{Zustände} mit $q_i|y_i$ ($q_i$ ist Zustandsname)
+    \end{itemize}
+  \end{block}
+
+  In beiden Fällen ist die Ausgabe ein Wort $y = y_0\ldots y_{n-1}$ über einem
+  Ausgabealphabet $Y$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Endlicher Akzeptor}
+  Spezialfall eines Moore-Automaten: Ausgabealphabet $Y = \{0, 1\}$
+  \begin{definition}
+    $A = (Z, z_0, X, f, F)$
+    \begin{description}
+      \item[$Z$:] Zustandsmenge
+      \item[$z_0$:] Startzustand $z_0 \in Z$
+      \item[$X$:] Eingabealphabet
+      \item[$f$:] $Z \times X \longrightarrow Z$, Zustandsübergangsfunktion
+      \item[$F$:] Akzeptierende Zustände
+    \end{description}
+  \end{definition}
+  \begin{itemize}
+    \item Ein Wort $w\in X^*$ wird \emph{akzeptiert}, wenn gilt $f^*(z_0,w)\in F$
+    \item Die von einem Akzeptor $A$ \emph{akzeptierte formale Sprache} ist $L(A)=\{w \in X^* |f^*(z_0,w)\in F\}$
+   \end{itemize}
+\end{frame}
+
