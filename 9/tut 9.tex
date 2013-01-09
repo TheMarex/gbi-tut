@@ -33,7 +33,7 @@
 \newcommand{\link}[2][blue]{\underline{\textcolor{#1}{#2}}}
 \renewcommand{\emph}[1]{\textit{\textcolor{gray}{#1}}}
 \newcommand{\warn}[1]{\textcolor{red}{#1}}
-\newcommand{\ans}[2]{\visible<#1->{\textcolor{blue}{#2}}}
+\newcommand{\ans}[2]{\visible<#1->{\textcolor{green!70!black}{#2}}}
 \newcommand{\xb}[1]{{\bf #1}}   % \xb {fett}
 \newcommand{\xu}{\underline}    % \xu {unterstrichen}
 \newcommand{\hide}{\onslide+<+(1)->}
@@ -66,7 +66,9 @@
 \begin{frame}
   \frametitle{Anmerkungen zum letzten Übungsblatt}
   \begin{enumerate}
-    \item Bla
+    \item $f(n) \in \Theta(g(n))$ bedeutet \warn{nicht} $f(n) = c \cdot g(n)$
+    \item Die Regel mit "`der höhste Exponent gewinnt"' gilt nur bei Polynomen!
+    \item $f(n) \leq c \cdot g(n)$ muss entweder über vollständige Induktion bewiesen werden, oder durch Abschätzen, aber nicht durch "`Einsetzen"'.
   \end{enumerate}
 \end{frame}
 
@@ -81,7 +83,11 @@
 \begin{frame}
   \frametitle{Was ihr jetzt wissen sollte.}
   \begin{enumerate}
-    \item bla
+    \item Was sind Akzeptoren?
+    \item Was sind reguläre Ausdrücke?
+    \item Wie kann ich eine Sprache zu einem regulären Ausdruck erzeugen?
+    \item Zu was sind rechtslineare Grammatiken äquivalent?
+    \item Kann jede reguläre Sprache von einem endlichen Akzeptor erkannt werden?
   \end{enumerate}
 \end{frame}
 
@@ -89,9 +95,8 @@
 \begin{frame}[plain]
   \begin{figure}
     \begin{center}
-      \includegraphics[width=300pt]{cautionary}
+      \includegraphics[width=200pt]{star_ratings.png}
     \end{center}
-    {\tiny This really is a true story, and she doesn't know I put it in my comic because her wifi hasn't worked for weeks.}
   \end{figure}
 \end{frame}
 
