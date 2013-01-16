@@ -1,0 +1,99 @@
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+
+\usepackage{graphics}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
+
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+ \usetikzlibrary{matrix}
+\usetikzlibrary{automata}
+
+\usepackage{wrapfig}
+
+\usetheme{Singapore}
+\usecolortheme{dove}
+\graphicspath{{images/}{../comics/}}
+
+\newcommand{\xn}{\visible<2->{$\times$}}
+\newcommand{\xj}{\visible<2->{$\checkmark$}}
+\newcommand{\rd}[1]{\textcolor{red}{#1}}
+\newcommand{\gn}[1]{\textcolor{green}{#1}}
+\newcommand{\bl}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+
+\newcommand{\link}[2][blue]{\underline{\textcolor{#1}{#2}}}
+\renewcommand{\emph}[1]{\textit{\textcolor{gray}{#1}}}
+\newcommand{\warn}[1]{\textcolor{red}{#1}}
+\newcommand{\ans}[2]{\visible<#1->{\textcolor{green!70!black}{#2}}}
+\newcommand{\xb}[1]{{\bf #1}}   % \xb {fett}
+\newcommand{\xu}{\underline}    % \xu {unterstrichen}
+\newcommand{\hide}{\onslide+<+(1)->}
+
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \frametitle{}
+    {\footnotesize
+      \tableofcontents[currentsection]
+    }
+  \end{frame}
+}
+
+\title{Grundbegriffe der Informatik}
+\author{Patrick Niklaus}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Grundbegriffe der Informatik}
+  \framesubtitle{10. Tutorium}
+  \begin{description}
+    \item \textbf{Name:} Patrick Niklaus
+    \item \textbf{E-Mail:} patrick.niklaus@student.kit.edu
+    \item \textbf{Nr:} 43
+  \end{description}
+\end{frame}
+
+\section{Übungsblatt}
+\begin{frame}
+  \frametitle{Anmerkungen zum letzten Übungsblatt}
+  \begin{enumerate}
+    \item $T(f(n)) \in O(g(n))$ folgt \warn{nicht}: $T(n) \in O(g(n))$
+    \item Bei Automaten nicht den Startzustand vergessen.
+    \item Immer nur eine ausgehende Kante mit der selben Eingabe pro Zustand.
+  \end{enumerate}
+\end{frame}
+
+% Nur falls noch Bedarf besteht.
+\input{../sections/strukturelle-induktion.tex}
+
+\section{Abschluss}
+\subsection{Zusammenfassung}
+\begin{frame}
+  \frametitle{Was ihr jetzt wissen sollte.}
+  \begin{enumerate}
+    \item Good stuff.
+  \end{enumerate}
+\end{frame}
+
+\subsection{xkcd}
+\begin{frame}[plain]
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=220pt]{regular_expressions.png}
+    \end{center}
+  \end{figure}
+  \begin{center}
+    {\tiny Wait, forgot to escape a space.  Wheeeeee[taptaptap]eeeeee.}
+  \end{center}
+\end{frame}
+
+\end{document}
