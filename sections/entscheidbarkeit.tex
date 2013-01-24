@@ -1,0 +1,93 @@
+\section{Entscheidbarkeit}
+\subsection{Motivation}
+\begin{frame}
+  \frametitle{Motivation}
+  Wir haben Turingmachinenakzeptoren kennengelernt, die eine Sprache $L(T)$ akzeptieren.
+  \begin{alertblock}{}
+    Gibt es so einen TMA zu \emph{jeder} Sprache?
+    \begin{center} \warn{Nein.} \end{center}
+  \end{alertblock}
+  Und das kann man einfach einsehen.
+\end{frame}
+\subsection{Kodierte Turingmachinen}
+\begin{frame}
+  \frametitle{Beschreibung einer Turingmachine}
+  Wir kennen zwei Arten von Beschreibungen: Graphen und Tabellen
+  \begin{center}
+    \begin{tabular}{cccccc}
+      \toprule
+      & r & $c_0$ & $c_1$ & h \\
+      \midrule
+      0 & r,0,R   & $c_0$,0,L & $c_0$,1,L \\
+      1 & r,1,R   & $c_0$,1,L & $c_1$,0,L \\
+      $\square$  & $c_1$,$\square$, L & h,$\square$ ,R   & $c_0$,1,L & \hphantom{C,1,L} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  Jede beschreibt eine TM \emph{eindeutig}. Unser Ziel: Die Tabelle als Folge von Symbolen kodieren.
+\end{frame}
+\begin{frame}
+  \frametitle{Kodierung einer Turingmachine}
+  Jeder Eintrag in der Tabelle ist beschreibar durch $(z, x, z', y, m)$
+  \begin{description}
+    \item[$z \in Z$:] Aktueller Zustand
+    \item[$x \in X$:] Gelesenes Symbol auf dem Band
+    \item[$z' \in Z$:] Nächster Zustand
+    \item[$y \in X$:] Ausgabesymbol auf dem Band
+    \item[$m \in M$:] $M = \{L, 0, R\}$ Kopfbewegung
+  \end{description}
+  \begin{block}{}
+    $Z$, $X$, $M$ sind alle \emph{endlich} also: Durchnummerieren.
+  \end{block}
+\end{frame}
+\begin{frame}
+  \frametitle{Kodierte Darstellung}
+  Jede Vorschrift der TM ist jetzt als Zahlenfolge darstellbar.
+  \begin{block}{Was fehlt:}
+    Ene Zahlenkodierung (dezimal, binär, unär, etc.) und ein Format.
+  \end{block}
+  \begin{alertblock}{}
+  Bei einer unären Kodierung mit Einsblöcken als Trennsymbole ist die \emph{kodierte} TM selbst wieder eine Binärzahl!
+  \end{alertblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Gödelnummer}
+  Man kann jeder TM eindeutig als natürliche Zahl kodieren. Dies nennt man \emph{Gödelnummer} einer TM.
+  Es gibt also eine Funktion $f(T) \mapsto n_T \in \mathbb{N}$.
+  \begin{alertblock}{}
+    $\mathbb{N}$ ist abzählbar unendlich. Es gibt also höhsten \emph{abzählbar unendlich} viele Turingmachinen.
+  \end{alertblock}
+\end{frame}
+\subsection{Schneller Beweis}
+\begin{frame}
+  \frametitle{Existenz unendscheidbarer Sprachen}
+  \begin{theorem}
+    Es gibt mehr formale Sprachen als Turingmachinenakzeptoren.
+  \end{theorem}
+  \begin{proof}
+    Sei $A$ ein endliches Alphabet. $A^*$ ist die Menge aller Wörter,
+    also ist $\mathcal{P}(A^*)$ die Menge aller Sprachen. $A^*$ ist abzählbar unendlich.
+    \begin{block}{Nach Cantor gilt:}
+    Die \emph{Potenzmenge} einer abzählbaren Menge ist überabzählbar.\\
+    $\Rightarrow$ überabzählbar viele Sprachen.\\
+    \xb{Aber:} Es gibt nur abzählbar viele Turingmachinenakzeptoren.
+    \end{block}
+  \end{proof}
+  Da jeder TMA nur genau eine Sprache erkennt, gibt es also Sprachen die von einem TMA nicht erkannt werden können.
+\end{frame}
+\subsection{Halteproblem}
+\begin{frame}
+  \frametitle{Halteproblem}
+  Wir wollen wissen: Kann man \emph{allgemein} mit einer Turingmachine feststellen, ob eine andere Turingmachien hält?
+  \begin{definition}
+    $H := \{w | w \text{ ist die Kodierung einer TM } T_w \text{ und } T_w(w) \text{ hält }\}$ ist (hier) die Sprache des Halteproblems.
+  \end{definition}
+  \pause
+  \begin{block}{}
+  Gibt es einen TMA der entscheidet ob $w \in H$?\\
+  Anders: Ist H eine \emph{entscheidbare} Sprache? \warn{\xb{Nein.}}
+  \end{block}
+  \begin{alertblock}{Wichtig:}
+    Uns interessiert nicht ob man für \emph{spezielle} TM berechnen kann ob sie halten oder nicht.
+  \end{alertblock}
+\end{frame}

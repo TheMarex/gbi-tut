@@ -1,0 +1,86 @@
+\section{Nerode-Äquivalenzrelastion}
+\subsection{Äquivalenzrelationen}
+\begin{frame}
+  \frametitle{Relation als Graph}
+    Darstellung von Relationen als gerichtete Graphen $(xRy) \Rightarrow (x, y) \in E$.
+    \begin{exampleblock}{Worang erkennt man folgende Eigenschaften einer Relation:}
+      \begin{itemize}
+        \item Reflexivität?
+        \item Symmetrie?
+        \item Transitivität?
+      \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\subsection{Äquivalenzrelation über Sprachen}
+\begin{frame}
+  \frametitle{Äquivalenzrelationen von Nerode}
+  \begin{definition}
+  	für alle $w_1,w_2 \in A^*$ ist\\
+  	$w_1 \equiv_L w_2 \Leftrightarrow (\forall w \in A^*: w_1w \in L \Leftrightarrow w_2w \in L)$
+  \end{definition}
+
+  \begin{exampleblock}{Erst mal ein Beispiel}
+    Sei $L = \langle a*b* \rangle \subset A^*$ Gilt $w_1 \equiv_L w_2$?
+      \begin{itemize}
+        \item $w_1 = aaa, w_2 = a$ \ans{2}{Richtig}
+        \item $w_1 = aaab, w_2 = abb$ \ans{3}{Richtig}
+        \item $w_1 = aa, w_2 = abb$ \wrong{4}{Falsch}
+        \item $w_1 = aba, w_2 = babb$ \ans{5}{Richtig}
+        \item $w_1 = ab, w_2 = ba$ \ans{6}{Falsch}
+      \end{itemize}
+   \end{exampleblock}
+\end{frame}
+
+\subsection{Faktormengen}
+\begin{frame}
+  \frametitle{Faktormenge}
+  \begin{definition}
+    Sei $\equiv$ eine Äquivalenzrelationen über einer Menge $M$. Die \emph{Menge alle Äquivalenzklassen} von $\equiv$ über M heißt \emph{Faktormenge}.
+  \end{definition}
+  \begin{exampleblock}{Etwas Modulo-Arithmetik}
+    Division von Ganzzahlen mit Rest durch 5:
+    \begin{description}
+      \item[Äquivalenzklasse:] $a \in [b] \Leftrightarrow (a \mod 5) = (b \mod 5)$
+      \item[Faktormenge:] $\mathbb{Z}/_{5\mathbb{Z}} = \{[0], [1], [2], [3], [4]\}$
+    \end{description}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Aufgaben}
+    Welche Äquivalenzklassen/Faktormengen haben folgende Äquivalenzrelationen über $\mathbb{Z}$:
+    \begin{enumerate}
+      \item $a R b \Leftrightarrow \exists k \in \mathbb{Z}: a - b = 3k$\\
+        \ans{2}{$F = \{[6], [4], [8]\}$}
+      \item $a R b \Leftrightarrow \exists k \in \mathbb{Z}: a - b = 4k$\\
+        \ans{3}{$F = \{[0], [1], [2], [3]\}$}
+    \end{enumerate}
+\end{frame}
+\begin{frame}
+  \frametitle{Motivation}
+  Wir wollen Sprachen \emph{aufteilen} in ``Gruppen'' von Wörtern die ``ähnlich'' sind.
+
+  Die Anzahl dieser ``Gruppen'' wird uns später die \emph{minimale} Anzahl an Zustände verraten, die ein Automat brauch um sie zu erkennen.
+\end{frame}
+\begin{frame}
+  \frametitle{Faktormengen von Sprachen}
+  Nutze die Äquivalenzrelastion von Nerode $\equiv_L$ um eine Sprache $L$ in Äquivalenzklassen aufzuteilen.
+  \begin{exampleblock}{Beispiel}
+    $L = \langle {a*}{(ba)*} \rangle$
+    \begin{itemize}
+      \item $[a] = \langle {a*} \rangle$
+      \item $[ab] = \langle {a*}{(ba)*}b \rangle$
+      \item $[aba] = \langle {a*}ba{(ba)*}\rangle$
+      \item $[bb] = \langle {(a|b)*}bb{(a|b)*} \; | \; {(a|b)*}{b(a|b)*}{ab(a|b)*} \; | \; {(a|b)*}{b(a|b)*}aa{(a|b)*} \rangle$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+\begin{frame}
+  \frametitle{Aufgaben}
+  Bildet zu den folgenden Sprachen die Nerode-Äquivalenzklassen:
+  \begin{enumerate}
+    \item $L = \{01, 10\}^*$
+    \item $L = \{1^n0^n | n \in \mathbb{N}\}$
+    \item $L = \langle aa*bb \rangle$
+  \end{enumerate}
+\end{frame}
