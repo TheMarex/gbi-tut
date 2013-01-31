@@ -1,0 +1,67 @@
+\section{Halbordnungen}
+\subsection{Was ist eine Halbordnung?}
+\begin{frame}
+	\frametitle{Definition}
+	\begin{definition}
+		Eine Relation $R\subseteq M\times M$ heißt \emph{Halbordnung}, wenn sie folgende Eigenschaften besitzt:
+		\begin{description}
+			\item[Reflexivität:] $\forall x \in M: xRx$
+			\item[Antisymmetrie:] $\forall x,y \in M: xRy \wedge yRx \Rightarrow x = y$
+			\item[Transitivität:] $\forall x,y,z \in M: xRy \wedge yRz \Rightarrow xRz$
+		\end{description}
+	\end{definition}
+\end{frame}
+\begin{frame}
+	\frametitle{Aufgaben}
+		Sind die folgenden Relationen Halbordnungen? Wenn nein, welche Bedingungen erfüllen sie nicht?
+		\begin{enumerate}
+			\item Die Mengeninklusion $\subseteq$ \ans{2}{Ja}
+			\item Die Relation $x\equiv y (\text{mod }5)$ \wrong{3}{Nein}
+			\item Die Relation $\sqsubseteq_p$ ($w_1\sqsubseteq_pw_2\iff\exists u\in A^*:w_1u=w_2$) \ans{4}{Ja}
+			\item Die Relation $a|b \iff \exists n\in \mathbb{N}:a\cdot n=b$ \ans{5}{Ja}
+			\item Die Relation $w_1\sqsubseteq w_2 \iff |w_1|\leq |w_2|$ \wrong{6}{Nein}
+		\end{enumerate}
+\end{frame}
+\subsection{Hasse-Diagramm}
+\begin{frame}
+  \frametitle{Hasse-Diagramm}
+	\begin{definition}
+		Ein \emph{Hasse-Diagramm} ist der Graph der Relation R ohne $\dots$
+    \begin{itemize}
+      \item reflexive
+      \item transitive
+    \end{itemize}
+    Kanten.
+  \end{definition}
+\end{frame}
+\begin{frame}
+  \frametitle{Aufgabe}
+  Zeichnet das Hasse-Diagramm zur Relation $\sqsubseteq_p$, die definiert ist als:$$w_1\sqsubseteq_pw_2\iff\exists u\in A^*:w_1u=w_2$$ auf der Sprache $\{w|w\in \{a,b\}^* \wedge |w|\leq 2\}$.
+\end{frame}
+\subsection{Extreme Elemente}
+\begin{frame}
+	\frametitle{Extreme Elemente}
+	Es sei $(M,\sqsubseteq)$ eine halbgeordnete Menge und $T$ eine Teilmenge von $M$.\\
+  $x \in T$ heißt $\dots$
+	\begin{description}
+		\item[minimales Element:] $\neg(\exists y\in T: y\sqsubseteq x \wedge y\neq x)$.
+		\item[maximales Element:] $\neg(\exists y\in T: y\sqsupseteq x \wedge y\neq x)$.
+		\item[kleinstes Element:] $\forall y\in T: y\sqsupseteq x$.
+		\item[größtes Element:] $\forall y\in T: y\sqsubseteq x$.
+	\end{description}
+\end{frame}
+\begin{frame}
+	\frametitle{Aufgabe}
+		Zeichnet ein Hassediagramm, bei dem eine Teilmenge ein minimales Element, aber kein kleinstes Element hat,
+		sowie ein maximales Element, aber kein größtes Element hat.
+\end{frame}
+\begin{frame}
+	\frametitle{Extreme Elemente}
+	\begin{alertblock}{Beachtet:}
+		\begin{itemize}
+			\item Wie viele kleinste Elemente kann es geben? \ans{2}{1}
+			\item Ist jedes kleinste Element auch ein minimales Element? \ans{3}{Ja}
+			\item Ist jedes minimale Element auch ein kleinstes Element? \wrong{4}{Nein}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}

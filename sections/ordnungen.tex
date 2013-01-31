@@ -1,0 +1,33 @@
+\section{Ordnungen}
+\begin{frame}
+	\frametitle{Ordnungen}
+	\begin{definition}
+		Eine \emph{Ordnung} ist eine Halbordnung für die zusätzlich gilt:
+		$$\forall x,y\in M: xRy \vee yRx$$
+	\end{definition}
+\end{frame}
+\begin{frame}
+	\frametitle{Beispiele}
+	\begin{exampleblock}{Lexikographische Ordnung I}
+		Die Relation \emph{$\sqsubseteq_1$} sei die Ordnungsrelation, nach der z.B. die Wörter in einem Wörterbuch geordnet sind.\\
+		Ergänze:
+		\begin{itemize}
+			\item aa \visible<2->{$\sqsubseteq_1$} aabba
+			\item bba \visible<3->{$\sqsupseteq_1$} aa
+			\item aaaaa \visible<4->{$\sqsubseteq_1$} bba
+			\item aab \visible<5->{$\sqsupseteq_1$} aaaab
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+	\begin{exampleblock}{Lexikographische Ordnung II}
+		Die Relation \emph{$\sqsubseteq_2$} sei die Ordnungsrelation, die zuerst nach Länge und danach alle gleich langen Wörter wie im Wörterbuch ordnet.\\
+		Ergänze:
+		\begin{itemize}
+			\item aa \visible<2->{$\sqsubseteq_1$} aabba
+			\item bba \visible<3->{$\sqsupseteq_1$} aa
+			\item aaaaa \visible<4->{$\sqsupseteq_1$} bba
+			\item aab \visible<5->{$\sqsubseteq_1$} aaaab
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}

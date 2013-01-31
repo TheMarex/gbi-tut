@@ -1,0 +1,47 @@
+\section{Kongruenzrelationen}
+\subsection{Was ist das?}
+\begin{frame}
+	\frametitle{Kongruenzrelationen}
+	\begin{definition}
+		Äquivalenzrelationen $\equiv$ auf einer Menge M, die mit den Operationen auf M "`verträglich"' sind, nennt man \emph{Kongruenzrelationen}.
+	\end{definition}
+  \begin{block}{Verträglichkeit}
+    $\equiv$ heißt \emph{verträglich} mit $f:M\to M$ wenn gilt:
+    $$\forall x_1, x_2 \in M: x_1\equiv x_2 \Rightarrow f(x_1)\equiv f(x_2)$$
+    $\equiv$ heißt \emph{verträglich} mit $\diamond:M \times M \to M$ wenn gilt:
+		$$\forall x_1,x_2,y_1,y_2: \in M: x_1\equiv x_2 \wedge y_1\equiv y_2 \Rightarrow x_1\diamond y_1 \equiv x_2 \diamond y_2$$
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Kongruenzrelationen}
+	\begin{block}{Zeigt, dass die Äquivalenzrelationen "modulo n" mit + verträglich sind}
+		Tipp: $a\equiv b \iff a-b = k\cdot n$
+	\end{block}
+\end{frame}
+\subsection{Ist die Äquivalenzrelation von Nerode eine Kongruenzrelation?}
+\begin{frame}
+	\frametitle{Ist die Äquivalenzrelation von Nerode eine Kongruenzrelation?}
+	Sei \emph{$w'\in A^*$} ein beliebiges Wort und \emph{$f_{w'}:A^*\to A^*$} die Abbildung, die $w'$ an ihr Argument anhängt.\\	
+	\begin{proof}
+		\textbf{Behauptung:} $\equiv_L$ ist mit allen $f_{w'}$ verträglich.
+		$$\forall w_1, w_2\in A^*:w_1\equiv_L w_2 \Rightarrow w_1w'\equiv_L w_2w'$$
+		$$\forall w_1, w_2\in A^*:w_1\equiv_L w_2 \Rightarrow f_{w'}(w_1) \equiv_L f_{w'}(w_2)$$
+	\end{proof}
+\end{frame}
+\begin{frame}
+	\frametitle{Was sagt uns das jetzt?}
+	\begin{block}{Folgerung}
+		Wenn man eine Kongruenzrelation $\equiv$ auf $M$ vorliegen hat, die mit einer Operation/Abbildung auf $M$ verträglich ist, wird eine Operation/Abbildung auf $M_{/\equiv}$ induziert.
+	\end{block}
+	\pause
+	\begin{exampleblock}{Beispiel}
+		Wir haben gerade gezeigt: $f_x:A^*\to A^*:w\mapsto wx$ ist mit $\equiv_L$ verträglich.\\
+		\pause
+		Dann ist ${f'}_x:A^*_{/\equiv_L}\to A^*_{/\equiv_L}:[w]\mapsto[wx]$ \emph{wohldefiniert}.
+	\end{exampleblock}
+	\pause
+	\begin{alertblock}{Ganz wichtig!}
+		${f'}_x$ ist wirklich \emph{nur} wohldefiniert, wenn die Operation mit $\equiv$ verträglich ist.
+	\end{alertblock}
+	
+\end{frame}
